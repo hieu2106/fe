@@ -1,0 +1,37 @@
+function createRow(rowData) {
+    const row = document.createElement("tr");
+    row.innerHTML = `
+      <tr>
+          <td>${rowData.id}</td>
+          <td>${rowData.manv}</td>
+          <td>${rowData.name}</td>
+          <td>${rowData.address}</td>
+          <td>${rowData.email}</td>
+          <td>${rowData.bday}</td>
+          <td>${rowData.phone}</td>
+          <td>${rowData.password}</td>
+          <td>${rowData.gender}</td>
+          <td><a href="form-editnv.html?id=${rowData.id}"><button class="btn btn-danger btn-anim" onclick="updateDVById(${rowData.id});"><i class="fa fa-pencil-square-o"></i><span class="btn-text">edit</span></button></a></td>       
+          <td><button class="btn btn-danger btn-anim" onclick="delNV(${rowData.id})"><i class="fa fa-trash-o"></i><span class="btn-text">delete</span></button></td>
+      </tr>
+    `;
+    return row;
+  }
+  
+  (async function () {
+    const foodTable = document.querySelector("#foods_table tbody");
+    // const URL = "http://localhost:3000/food";
+    const foods = await getAllNV();
+    if (foods.length) {
+      for (const food of foods) {
+        foodTable.appendChild(createRow(food));
+      }
+    }
+  })();
+
+  function delNV(id){
+    deleteNV(id);
+    window.location.reload();
+  }
+  
+  

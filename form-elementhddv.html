@@ -307,7 +307,7 @@
 					<div class="row">
 						<!-- Basic Table -->
 						<div class="col-sm-12">
-							<div class="panel panel-default card-view">
+							<div id="example-bill" class="panel panel-default card-view">
 								<div class="panel-heading">
 									<div class="pull-left">
 										<h1>Hóa đơn dịch vụ</h1>
@@ -326,7 +326,7 @@
 										<div class="form-wrap">
 												<div class="table-wrap mt-40">
 													<div id="hoadon_table" class="table-responsive">
-														<table class="table mb-0">
+														<table id="example" class="table mb-0">
 															<thead>
 																<tr>
 																	<th scope="col">#</th>
@@ -348,18 +348,17 @@
 														</div>
 													</div>
 											
-
-												<div class="form-group mb-0">
-													<button type="button" class="btn btn-success btn-anim" onclick="window.print()"
-														id="dl-pdf">
-														<i class="icon-rocket"></i><span class="btn-text">Print</span>
-													</button>
-												</div>
+												
 											</div>
 										</div>
 
 									</div>
 								</div>
+							</div>
+							<div class="form-group mb-0">
+								<button id="btn-one" class="btn btn-success btn-lg">
+									Print Bill
+								  </button>
 							</div>
 						</div>
 						<!-- /Basic Table -->
@@ -373,7 +372,14 @@
 		<!-- /#wrapper -->
 
 		<!-- JavaScript -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
 
+		<script
+		  src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"
+		  integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA=="
+		  crossorigin="anonymous"
+		  referrerpolicy="no-referrer"
+		></script>
 		<!-- jQuery -->
 		<script src="vendors/bower_components/jquery/dist/jquery.min.js"></script>
 
@@ -402,5 +408,4 @@
 		<script src="hddv.js"></script>
 
 </body>
-
 </html>

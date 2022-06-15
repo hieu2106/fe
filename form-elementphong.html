@@ -22,6 +22,7 @@
 		
 	<!-- Custom CSS -->
 	<link href="dist/css/style.css" rel="stylesheet" type="text/css">
+  <script src="./auth.js"></script>
 </head>
 
 <body>
@@ -256,7 +257,7 @@
                             type="button"
                             class="btn btn-success btn-anim"
                             id="btnSubmit"
-                            onclick="createPh(); FormValidate();"
+                            onclick="createPh();"
                           >
                             <i class="icon-rocket"></i
                             ><span class="btn-text">submit</span>
@@ -304,9 +305,6 @@
     <script src="handles.js"></script>
 
     <script>
-      function FormValidate(){
-        alert(1)
-      }
 
       function createPh() {
         var maphong = document.querySelector("input[name=maphong]").value;
@@ -320,11 +318,13 @@
           dongia,
           loaiphong: radio,
         };
+
+        // createNewPh(dataPost).then(console.log);
         createNewPh(dataPost).then((data) => {
           console.log(data);
-          if (data.error) {
-            // do something on error
-            alert(data.error.sqlMessage);
+          if (data.message) alert(data.message)
+          else {
+            window.location.href = "basic-tableph.html";
           }
         });
       }

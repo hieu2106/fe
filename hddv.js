@@ -51,7 +51,9 @@ function addRow(rowData) {
   };
 
   const tableData = [];
-  const btnAdd = document.getElementById("btnAdd").addEventListener("click", function () {
+  const btnAdd = document
+    .getElementById("btnAdd")
+    .addEventListener("click", function () {
       const dichvu = dichvus.find((val) => val.madv === select.value);
       const luongsd = document.getElementById("luongsd").value;
       if (dichvu && luongsd) {
@@ -148,9 +150,25 @@ document.getElementById("btnSubmit").addEventListener("click", function () {
     console.log(data);
     if (data.error) {
       // do something on error
-      alert('Mã hóa đơn dịch vụ đã tồn tại');
+      alert("Mã hóa đơn dịch vụ đã tồn tại");
     }
   });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  //////////////
+  //////////////
+  document.querySelector("#btn-one").addEventListener("click", function () {
+    html2canvas(document.querySelector("#example-bill")).then((canvas) => {
+      let base64image = canvas.toDataURL("image/png");
+      // console.log(base64image);
+      let pdf = new jsPDF("p", "px", [1320, 1120]);
+      pdf.addImage(base64image, "PNG", 15, 15, 1110, 360);
+      pdf.save("webtylepress-two.pdf");
+    });
+  });
+  //////////////
+  //////////////
 });
 
 document.getElementById("tongtien").disabled = true;

@@ -43,8 +43,6 @@
 
     <!-- Custom CSS -->
     <link href="dist/css/style.css" rel="stylesheet" type="text/css" />
-
-    <script src="./auth.js"></script>
   </head>
 
   <body>
@@ -175,13 +173,14 @@
               href="javascript:void(0);"
               data-toggle="collapse"
               data-target="#form_dr"
-              ><div class="pull-left">
+            >
+              <div class="pull-left">
                 <i class="zmdi zmdi-edit mr-20"></i
                 ><span class="right-nav-text">Hệ thống</span>
               </div>
               <div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div>
-              <div class="clearfix"></div
-            ></a>
+              <div class="clearfix"></div>
+            </a>
             <ul id="form_dr" class="collapse collapse-level-1 two-col-list">
               <li>
                 <a href="flot-chart.html">Đổi mật khẩu</a>
@@ -196,13 +195,14 @@
               href="javascript:void(0);"
               data-toggle="collapse"
               data-target="#chart_dr"
-              ><div class="pull-left">
+            >
+              <div class="pull-left">
                 <i class="zmdi zmdi-chart-donut mr-20"></i
                 ><span class="right-nav-text">Hóa Đơn </span>
               </div>
               <div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div>
-              <div class="clearfix"></div
-            ></a>
+              <div class="clearfix"></div>
+            </a>
             <ul id="chart_dr" class="collapse collapse-level-1 two-col-list">
               <li>
                 <a href="fontawesome.html">Hóa Đơn Dịch Vụ</a>
@@ -217,13 +217,14 @@
               href="javascript:void(0);"
               data-toggle="collapse"
               data-target="#table_dr"
-              ><div class="pull-left">
+            >
+              <div class="pull-left">
                 <i class="zmdi zmdi-format-size mr-20"></i
                 ><span class="right-nav-text">Quản lý</span>
               </div>
               <div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div>
-              <div class="clearfix"></div
-            ></a>
+              <div class="clearfix"></div>
+            </a>
             <ul id="table_dr" class="collapse collapse-level-1 two-col-list">
               <li>
                 <a href="basic-tablenv.html">Quản lý Nhân Viên</a>
@@ -247,13 +248,14 @@
               href="javascript:void(0);"
               data-toggle="collapse"
               data-target="#icon_dr"
-              ><div class="pull-left">
+            >
+              <div class="pull-left">
                 <i class="zmdi zmdi-iridescent mr-20"></i
                 ><span class="right-nav-text">Hóa Đơn</span>
               </div>
               <div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div>
-              <div class="clearfix"></div
-            ></a>
+              <div class="clearfix"></div>
+            </a>
             <ul id="icon_dr" class="collapse collapse-level-1">
               <li>
                 <a href="fontawesome.html">Thống Kê Doanh Thu</a>
@@ -264,7 +266,9 @@
             </ul>
           </li>
 
-          <li><hr class="light-grey-hr mb-10" /></li>
+          <li>
+            <hr class="light-grey-hr mb-10" />
+          </li>
         </ul>
       </div>
       <!-- /Left Sidebar Menu -->
@@ -273,77 +277,101 @@
       <div class="page-wrapper">
         <div class="container-fluid">
           <!-- Title -->
-          <div class="row heading-bg"></div>
+          <div class="row heading-bg">
+            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+              <h5 class="txt-dark">Thêm USER</h5>
+            </div>
+            <!-- Breadcrumb -->
+            <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+              <ol class="breadcrumb">
+                <li><a href="index.html">Dashboard</a></li>
+                <li>
+                  <a href="#"><span>form</span></a>
+                </li>
+                <li class="active"><span>form-element</span></li>
+              </ol>
+            </div>
+            <!-- /Breadcrumb -->
+          </div>
           <!-- /Title -->
 
+          <!-- Row -->
           <div class="row">
-            <!-- Basic Table -->
             <div class="col-sm-12">
               <div class="panel panel-default card-view">
-                <div class="panel-heading">
-                  <div class="pull-left">
-                    <h6 class="panel-title txt-dark">Quản Lý Phòng</h6>
-                  </div>
-                  <div class="clearfix"></div>
-                </div>
+                <!-- <div class="panel-heading">
+									<div class="pull-left">
+										<h6 class="panel-title txt-dark">Basic Form</h6>
+									</div>
+									<div class="clearfix"></div>
+								</div> -->
                 <div class="panel-wrapper collapse in">
                   <div class="panel-body">
-                    <!-- <p class="text-muted">Add class <code>table</code> in table tag.</p> -->
-                    <div class="input-group" style="padding-bottom: 5px">
-                      <input
-                        type="text"
-                        name="search_phong"
-                        class="form-control"
-                        placeholder="Search"
-                      />
-                      <span class="input-group-btn">
-                        <button
-                          type="button"
-                          class="btn btn-default"
-                          data-target="#search_form"
-                          data-toggle="collapse"
-                          aria-label="Close"
-                          aria-expanded="true"
-                          onclick="findPh();"
-                        >
-                          <i class="zmdi zmdi-search"></i>
-                        </button>
-                      </span>
-                    </div>
-
-                    <div class="form-group mb-0">
-                      <button
-                        type="button"
-                        class="btn btn-success btn-anim"
-                        onclick="location.href = 'form-elementphong.html';"
-                        id="btnSubmit"
-                      >
-                        <i class="icon-rocket"></i
-                        ><span class="btn-text">Thêm</span>
-                      </button>
-                    </div>
-                    <div class="table-wrap mt-40">
-                      <div id="foods_table" class="table-responsive">
-                        <table class="table mb-0">
-                          <thead>
-                            <tr>
-                              <th scope="col">#</th>
-                              <th scope="col">Mã phòng</th>
-                              <th scope="col">Diện tích</th>
-                              <th scope="col">Đơn giá</th>
-                              <th scope="col">Loại phòng</th>
-                            </tr>
-                          </thead>
-                          <tbody></tbody>
-                        </table>
-                      </div>
+                    <div class="form-wrap">
+                      <form id="myForm">
+                        <div class="form-group">
+                          <label class="control-label mb-10 text-left"
+                            >Tên tài khoản</label
+                          >
+                          <input
+                            type="text"
+                            class="form-control"
+                            name="username"
+                            id="madv"
+                          />
+                        </div>
+                        <div class="form-group">
+                          <label class="control-label mb-10 text-left"
+                            >Mật khẩu cũ</label
+                          >
+                          <input
+                            type="password"
+                            class="form-control"
+                            name="oldpass"
+                            id="oldpass"
+                          />
+                        </div>
+                        <div class="form-group">
+                          <label class="control-label mb-10 text-left"
+                            >Mật khẩu mỡi</label
+                          >
+                          <input
+                            type="password"
+                            class="form-control"
+                            name="newpass"
+                            id="newpass"
+                          />
+                        </div>
+                        <div class="form-group">
+                          <label class="control-label mb-10 text-left"
+                            >Nhập lại mật khẩu mới</label
+                          >
+                          <input
+                            type="password"
+                            class="form-control"
+                            name="renewpass"
+                            id="renewpass"
+                          />
+                        </div>
+                        <p id="demo"></p>
+                        <div class="form-group mb-0">
+                          <button
+                            type="button"
+                            class="btn btn-success btn-anim"
+                            id="btnSubmit"
+                          >
+                            <i class="icon-rocket"></i
+                            ><span class="btn-text">submit</span>
+                          </button>
+                        </div>
+                      </form>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <!-- /Basic Table -->
           </div>
+          <!-- /Row -->
         </div>
       </div>
       <!-- /Main Content -->
@@ -358,12 +386,13 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
-    <!-- Piety JavaScript -->
-    <script src="vendors/bower_components/peity/jquery.peity.min.js"></script>
-    <script src="dist/js/peity-data.js"></script>
+    <script src="vendors/bower_components/jasny-bootstrap/dist/js/jasny-bootstrap.min.js"></script>
 
     <!-- Slimscroll JavaScript -->
     <script src="dist/js/jquery.slimscroll.js"></script>
+
+    <!-- Fancy Dropdown JS -->
+    <script src="dist/js/dropdown-bootstrap-extended.js"></script>
 
     <!-- Owl JavaScript -->
     <script src="vendors/bower_components/owl.carousel/dist/owl.carousel.min.js"></script>
@@ -371,28 +400,61 @@
     <!-- Switchery JavaScript -->
     <script src="vendors/bower_components/switchery/dist/switchery.min.js"></script>
 
-    <!-- Fancy Dropdown JS -->
-    <script src="dist/js/dropdown-bootstrap-extended.js"></script>
-
     <!-- Init JavaScript -->
     <script src="dist/js/init.js"></script>
 
     <script src="handles.js"></script>
-    <script src="tbPH.js"></script>
-  </body>
 
-  <script>
-    function findPh() {
-      const keyword = document
-        .querySelector("input[name=search_phong]")
-        .value.trim();
-      searchPhById(keyword).then((data) => {
-        const foods_table = document.querySelector("#foods_table tbody");
-        foods_table.replaceChildren();
-        const rows = data.map((d) => {
-          foods_table.appendChild(createRow(d));
+    <script>
+      document
+        .getElementById("btnSubmit")
+        .addEventListener("click", function () {
+          let errors = [];
+          // const form = document.getElementById('myForm');
+          const madv = document.querySelector("input[name=madv]").value.trim();
+          // const tendv = document.querySelector("input[name=tendv]").value.trim();
+          // if(!tendv){
+          //     alert('Vui lòng nhập mã dịch vụ')
+          // }
+
+          const regexMaDV = /^DV[a-z0-9]+$/i;
+          if (!regexMaDV.test(madv)) {
+            errors.push({
+              field: "madv",
+              error: "Invalid madv",
+            });
+            // console.log(errors);
+            alert("Mã dịch vụ phải bắt đầu bằng DV");
+            return false;
+          }
+
+          // document.getElementById('demo').innerHTML=madv;
+
+          createDV();
+          // window.location.href = "basic-tabledv.html";
         });
-      });
-    }
-  </script>
+
+      function createDV() {
+        const madv = document.querySelector("input[name=madv]").value;
+        const tendv = document.querySelector("input[name=tendv]").value;
+        const dongia = document.querySelector("input[name=dongia]").value;
+        const mota = document.querySelector("input[name=mota]").value;
+
+        const dataPost = {
+          madv,
+          tendv,
+          dongia,
+          mota,
+        };
+        createNewDV(dataPost).then((data) => {
+          console.log(data);
+          if (data.error) {
+            // do something on error
+            alert(data.error.sqlMessage);
+          }
+          window.location.href = "basic-tabledv.html";
+        });
+      }
+    </script>
+  </body>
 </html>

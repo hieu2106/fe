@@ -1,8 +1,17 @@
-const API_BASE_URL = "http://26.91.201.28:3000/api";
+const API_BASE_URL = "http://localhost:3000/api";
 const tokens = JSON.parse(localStorage.getItem("tokens"));
 
 function getAllNV() {
   const url = API_BASE_URL + "/nhanvien";
+  return fetch(url, {
+    headers: {
+      authorization: tokens.accessToken,
+    },
+  }).then((res) => res.json());
+}
+
+function getAllDV() {
+  const url = API_BASE_URL + "/dichvu";
   return fetch(url, {
     headers: {
       authorization: tokens.accessToken,
@@ -56,7 +65,69 @@ function deleteNV(id) {
 }
 
 function searchNVById(keyword) {
-  const url = API_BASE_URL + "/nhanvien/search?name=" + encodeURIComponent(keyword);
+  const url =
+    API_BASE_URL + "/nhanvien/search?name=" + encodeURIComponent(keyword);
+  return fetch(url, {
+    headers: {
+      "Content-type": "application/json",
+      authorization: tokens.accessToken,
+    },
+  }).then((res) => res.json());
+}
+
+//Dich vu
+function getAllDV() {
+  const url = API_BASE_URL + "/dichvu";
+  return fetch(url, {
+    headers: {
+      authorization: tokens.accessToken,
+    },
+  }).then((res) => res.json());
+}
+
+function createNewDV(dichvu) {
+  const url = API_BASE_URL + "/dichvu";
+  return fetch(url, {
+    method: "POST",
+    body: JSON.stringify(dichvu),
+    headers: {
+      "Content-type": "application/json",
+      authorization: tokens.accessToken,
+    },
+  }).then((res) => res.json());
+}
+
+function updateDVById(id, dichvu) {
+  const url = API_BASE_URL + "/dichvu/" + id;
+  return fetch(url, {
+    method: "PATCH",
+    body: JSON.stringify(dichvu),
+    headers: {
+      "Content-type": "application/json",
+    },
+  }).then((res) => res.json());
+}
+
+function deleteDV(id) {
+  const url = API_BASE_URL + "/dichvu/" + id;
+  return fetch(url, {
+    method: "DELETE",
+  }).then((res) => res.json());
+}
+
+function getDVByID(id) {
+  const url = API_BASE_URL + "/dichvu/" + id;
+  return fetch(url, {
+    headers: {
+      "Content-type": "application/json",
+      authorization: tokens.accessToken,
+    },
+  }).then((res) => res.json());
+}
+
+function searchDVById(keyword) {
+  const url =
+    API_BASE_URL + "/dichvu/search?tendv=" + encodeURIComponent(keyword);
   return fetch(url, {
     headers: {
       "Content-type": "application/json",
@@ -68,7 +139,11 @@ function searchNVById(keyword) {
 //Khách hàng
 function getAllKH() {
   const url = API_BASE_URL + "/khachhang";
-  return fetch(url).then((res) => res.json());
+  return fetch(url, {
+    headers: {
+      authorization: tokens.accessToken,
+    },
+  }).then((res) => res.json());
 }
 
 function createNewKH(khachhang) {
@@ -78,6 +153,7 @@ function createNewKH(khachhang) {
     body: JSON.stringify(khachhang),
     headers: {
       "Content-type": "application/json",
+      authorization: tokens.accessToken,
     },
   }).then((res) => res.json());
 }
@@ -85,17 +161,21 @@ function createNewKH(khachhang) {
 function updateKHById(id, khachhang) {
   const url = API_BASE_URL + "/khachhang/" + id;
   return fetch(url, {
-    method: "PATCH",
-    body: JSON.stringify(khachhang),
     headers: {
       "Content-type": "application/json",
+      authorization: tokens.accessToken,
     },
   }).then((res) => res.json());
 }
 
 function getKHByID(id) {
   const url = API_BASE_URL + "/khachhang/" + id;
-  return fetch(url).then((res) => res.json());
+  return fetch(url, {
+    headers: {
+      "Content-type": "application/json",
+      authorization: tokens.accessToken,
+    },
+  }).then((res) => res.json());
 }
 
 function deleteKH(id) {
@@ -106,15 +186,14 @@ function deleteKH(id) {
 }
 
 function searchKHById(keyword) {
-  const filter = {
-    where: {
-      makh: {
-        regexp: "^" + keyword,
-      },
+  const url =
+    API_BASE_URL + "/khachhang/search?tenkh=" + encodeURIComponent(keyword);
+  return fetch(url, {
+    headers: {
+      "Content-type": "application/json",
+      authorization: tokens.accessToken,
     },
-  };
-  const url = API_BASE_URL + "/khachhang?filter=" + JSON.stringify(filter);
-  return fetch(url).then((res) => res.json());
+  }).then((res) => res.json());
 }
 
 //Tien nghi
@@ -169,62 +248,14 @@ function searchTNById(keyword) {
   return fetch(url).then((res) => res.json());
 }
 
-//Dich vu
-function getAllDV() {
-  const url = "http://26.91.201.28:4000/dichvu";
-  return fetch(url).then((res) => res.json());
-}
-
-function createNewDV(dichvu) {
-  const url = "http://26.91.201.28:4000/dichvu";
-  return fetch(url, {
-    method: "POST",
-    body: JSON.stringify(dichvu),
-    headers: {
-      "Content-type": "application/json",
-    },
-  }).then((res) => res.json());
-}
-
-function updateDVById(id, dichvu) {
-  const url = API_BASE_URL + "/dichvu/" + id;
-  return fetch(url, {
-    method: "PATCH",
-    body: JSON.stringify(dichvu),
-    headers: {
-      "Content-type": "application/json",
-    },
-  }).then((res) => res.json());
-}
-
-function deleteDV(id) {
-  const url = API_BASE_URL + "/dichvu/" + id;
-  return fetch(url, {
-    method: "DELETE",
-  }).then((res) => res.json());
-}
-
-function getDVByID(id) {
-  const url = "http://26.91.201.28:4000/dichvu/" + id;
-  return fetch(url).then((res) => res.json());
-}
-
-function searchDVById(keyword) {
-  const filter = {
-    where: {
-      madv: {
-        regexp: "^" + keyword,
-      },
-    },
-  };
-  const url = "http://26.91.201.28:4000/dichvu?filter=" + JSON.stringify(filter);
-  return fetch(url).then((res) => res.json());
-}
-
 //Phong
 function getAllPh() {
   const url = API_BASE_URL + "/phong";
-  return fetch(url).then((res) => res.json());
+  return fetch(url, {
+    headers: {
+      authorization: tokens.accessToken,
+    },
+  }).then((res) => res.json());
 }
 
 function createNewPh(phong) {
@@ -234,6 +265,7 @@ function createNewPh(phong) {
     body: JSON.stringify(phong),
     headers: {
       "Content-type": "application/json",
+      authorization: tokens.accessToken,
     },
   }).then((res) => res.json());
 }
@@ -245,32 +277,41 @@ function updatePhById(id, phong) {
     body: JSON.stringify(phong),
     headers: {
       "Content-type": "application/json",
+      authorization: tokens.accessToken,
     },
   }).then((res) => res.json());
 }
 
 function getPhByID(id) {
   const url = API_BASE_URL + "/phong/" + id;
-  return fetch(url).then((res) => res.json());
+  return fetch(url, {
+    headers: {
+      "Content-type": "application/json",
+      authorization: tokens.accessToken,
+    },
+  }).then((res) => res.json());
 }
 
 function deletePh(id) {
   const url = API_BASE_URL + "/phong/" + id;
   return fetch(url, {
     method: "DELETE",
+    headers: {
+      "Content-type": "application/json",
+      authorization: tokens.accessToken,
+    },
   }).then((res) => res.json());
 }
 
 function searchPhById(keyword) {
-  const filter = {
-    where: {
-      maphong: {
-        regexp: "^" + keyword,
-      },
+  const url =
+    API_BASE_URL + "/phong/search?maphong=" + encodeURIComponent(keyword);
+  return fetch(url, {
+    headers: {
+      "Content-type": "application/json",
+      authorization: tokens.accessToken,
     },
-  };
-  const url = API_BASE_URL + "/phong?filter=" + JSON.stringify(filter);
-  return fetch(url).then((res) => res.json());
+  }).then((res) => res.json());
 }
 
 //Tai khoan

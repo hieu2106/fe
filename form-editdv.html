@@ -323,13 +323,14 @@
             dongia,
             mota,
         };
-        updateDVById(id, dataPost).then((data) => {
-			console.log(data);
-			if (data.error) {
-				// do something on error
-				alert(data.error.sqlMessage);
-			}
-		});
+        // updateDVById(id, dataPost).then((data) => {
+		// 	console.log(data);
+		// 	if (data.error) {
+		// 		// do something on error
+		// 		alert(data.error.sqlMessage);
+		// 	}
+		// });
+		updateDVById(id, dataPost).then(console.log);
         
     }
     </script>

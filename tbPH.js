@@ -1,6 +1,6 @@
 function createRow(rowData) {
-    const row = document.createElement("tr");
-    row.innerHTML = `
+  const row = document.createElement("tr");
+  row.innerHTML = `
       <tr>
           <td>${rowData.id}</td>
           <td>${rowData.maphong}</td>
@@ -11,22 +11,21 @@ function createRow(rowData) {
           <td><button class="btn btn-danger btn-anim" onclick="delPh(${rowData.id})"><i class="fa fa-trash-o"></i><span class="btn-text">delete</span></button></td>
       </tr>
     `;
-    return row;
-  }
-  
-  (async function () {
-    const foodTable = document.querySelector("#foods_table tbody");
-    // const URL = "http://localhost:3000/food";
-    const foods = await getAllPh();
-    if (foods.length) {
-      for (const food of foods) {
-        foodTable.appendChild(createRow(food));
-      }
-    }
-  })();
+  return row;
+}
 
-  function delPh(id){
-    deletePh(id);
-    window.location.reload();
+(async function () {
+  const foodTable = document.querySelector("#foods_table tbody");
+  // const URL = "http://localhost:3000/food";
+  const foods = await getAllPh();
+  if (foods.length) {
+    for (const food of foods) {
+      foodTable.appendChild(createRow(food));
+    }
   }
-  
+})();
+
+function delPh(id) {
+  deletePh(id);
+  window.location.reload();
+}

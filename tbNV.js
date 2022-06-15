@@ -9,11 +9,10 @@ function createRow(rowData) {
           <td>${getDate(rowData.dob)}</td>
           <td>${rowData.phone}</td>
           <td>${rowData.gender}</td>
-          <td><a href="form-editnv.html?id=${
+          <td><a href="form-editnv.html?id=${rowData.id}">
+          <button class="btn btn-danger btn-anim" onclick="updateDVById(${
             rowData.id
-          }"><button class="btn btn-danger btn-anim" onclick="updateDVById(${
-    rowData.id
-  });"><i class="fa fa-pencil-square-o"></i><span class="btn-text">edit</span></button></a></td>       
+          });"><i class="fa fa-pencil-square-o"></i><span class="btn-text">edit</span></button></a></td>       
           <td><button class="btn btn-danger btn-anim" onclick="delNV(${
             rowData.id
           })"><i class="fa fa-trash-o"></i><span class="btn-text">delete</span></button></td>

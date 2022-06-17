@@ -320,10 +320,17 @@
                         <i class="icon-rocket"></i
                         ><span class="btn-text">Thêm</span>
                       </button>
+
+                      <button
+                        class="btn btn-success btn-anim"
+                        onclick="ExportToExcel('xlsx')"
+                      >
+                        Export table to excel
+                      </button>
                     </div>
                     <div class="table-wrap mt-40">
                       <div id="foods_table" class="table-responsive">
-                        <table class="table mb-0">
+                        <table id="example" class="table mb-0">
                           <thead>
                             <tr>
                               <th scope="col">#</th>
@@ -377,6 +384,11 @@
 
     <!-- Fancy Dropdown JS -->
     <script src="dist/js/dropdown-bootstrap-extended.js"></script>
+    <!-- excel -->
+    <script
+      type="text/javascript"
+      src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"
+    ></script>
 
     <!-- Init JavaScript -->
     <script src="dist/js/init.js"></script>
@@ -397,6 +409,14 @@
           foods_table.appendChild(createRow(d));
         });
       });
+    }
+
+    function ExportToExcel(type, fn, dl) {
+      var elt = document.getElementById("example");
+      var wb = XLSX.utils.table_to_book(elt, { sheet: "sheet1" });
+      return dl
+        ? XLSX.write(wb, { bookType: type, bookSST: true, type: "base64" })
+        : XLSX.writeFile(wb, fn || "MySheetName." + (type || "xlsx"));
     }
   </script>
 </html>

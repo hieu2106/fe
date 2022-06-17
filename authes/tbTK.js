@@ -3,11 +3,9 @@
     row.innerHTML = `
       <tr>
           <td>${rowData.id}</td>
-          <td>${rowData.manv}</td>
+          <td>${rowData.nhanvienId}</td>
           <td>${rowData.username}</td>
-          <td>${rowData.password}</td>
-          <td><a href="form-editdv.html?id=${rowData.id}"><button class="btn btn-danger btn-anim" onclick="updateDVById(${rowData.id});"><i class="fa fa-pencil-square-o"></i><span class="btn-text">edit</span></button></a></td>
-          <td><button class="btn btn-danger btn-anim" onclick="delDV(${rowData.id})"><i class="fa fa-trash-o"></i><span class="btn-text">delete</span></button></td>
+          <td>*************</td>
       </tr>
     `;
     return row;

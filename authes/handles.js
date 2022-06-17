@@ -1,8 +1,8 @@
 const API_BASE_URL = "http://localhost:3000/api";
 const tokens = JSON.parse(localStorage.getItem("tokens"));
 
-function getAllNV() {
-  const url = API_BASE_URL + "/nhanvien";
+function getAllTK() {
+  const url = API_BASE_URL + "/taikhoan";
   return fetch(url, {
     headers: {
       authorization: tokens.accessToken,
@@ -10,8 +10,8 @@ function getAllNV() {
   }).then((res) => res.json());
 }
 
-function getAllDV() {
-  const url = API_BASE_URL + "/dichvu";
+function getAllNV() {
+  const url = API_BASE_URL + "/nhanvien";
   return fetch(url, {
     headers: {
       authorization: tokens.accessToken,
@@ -199,7 +199,11 @@ function searchKHById(keyword) {
 //Tien nghi
 function getAllTN() {
   const url = API_BASE_URL + "/tiennghi";
-  return fetch(url).then((res) => res.json());
+  return fetch(url, {
+    headers: {
+      authorization: tokens.accessToken,
+    },
+  }).then((res) => res.json());
 }
 
 function createNewTN(tiennghi) {
@@ -209,6 +213,7 @@ function createNewTN(tiennghi) {
     body: JSON.stringify(tiennghi),
     headers: {
       "Content-type": "application/json",
+      authorization: tokens.accessToken,
     },
   }).then((res) => res.json());
 }
@@ -220,6 +225,7 @@ function updateTNById(id, tiennghi) {
     body: JSON.stringify(tiennghi),
     headers: {
       "Content-type": "application/json",
+      authorization: tokens.accessToken,
     },
   }).then((res) => res.json());
 }
@@ -237,15 +243,14 @@ function deleteTN(id) {
 }
 
 function searchTNById(keyword) {
-  const filter = {
-    where: {
-      matiennghi: {
-        regexp: "^" + keyword,
-      },
+  const url =
+    API_BASE_URL + "/tiennghiphong/search?tentn=" + encodeURIComponent(keyword);
+  return fetch(url, {
+    headers: {
+      "Content-type": "application/json",
+      authorization: tokens.accessToken,
     },
-  };
-  const url = API_BASE_URL + "/tiennghi?filter=" + JSON.stringify(filter);
-  return fetch(url).then((res) => res.json());
+  }).then((res) => res.json());
 }
 
 //Phong
@@ -355,6 +360,7 @@ function createNewHDDV(hddichvu) {
     body: JSON.stringify(hddichvu),
     headers: {
       "Content-type": "application/json",
+      authorization: tokens.accessToken,
     },
   }).then((res) => res.json());
 }
@@ -407,6 +413,72 @@ function searchPTById(keyword) {
   return fetch(url).then((res) => res.json());
 }
 
+// tien nghi phong
+function getAllTNP() {
+  const url = API_BASE_URL + "/tiennghiphong";
+  return fetch(url, {
+    headers: {
+      authorization: tokens.accessToken,
+    },
+  }).then((res) => res.json());
+}
+
+function createNewTNP(tiennghiphong) {
+  const url = API_BASE_URL + "/tiennghiphong";
+  return fetch(url, {
+    method: "POST",
+    body: JSON.stringify(tiennghiphong),
+    headers: {
+      "Content-type": "application/json",
+      authorization: tokens.accessToken,
+    },
+  }).then((res) => res.json());
+}
+
+function updateTNPById(id, tiennghiphong) {
+  const url = API_BASE_URL + "/tiennghiphong/" + id;
+  return fetch(url, {
+    method: "PATCH",
+    body: JSON.stringify(tiennghiphong),
+    headers: {
+      "Content-type": "application/json",
+      authorization: tokens.accessToken,
+    },
+  }).then((res) => res.json());
+}
+
+function getTNPByID(id) {
+  const url = API_BASE_URL + "/tiennghiphong/" + id;
+  return fetch(url, {
+    headers: {
+      "Content-type": "application/json",
+      authorization: tokens.accessToken,
+    },
+  }).then((res) => res.json());
+}
+
+function deleteTNP(id) {
+  const url = API_BASE_URL + "/tiennghiphong/" + id;
+  return fetch(url, {
+    method: "DELETE",
+    headers: {
+      "Content-type": "application/json",
+      authorization: tokens.accessToken,
+    },
+  }).then((res) => res.json());
+}
+
+function searchTNPById(keyword) {
+  const url =
+    API_BASE_URL + "/tiennghiphong/search?matn=" + encodeURIComponent(keyword);
+  return fetch(url, {
+    headers: {
+      "Content-type": "application/json",
+      authorization: tokens.accessToken,
+    },
+  }).then((res) => res.json());
+}
+
 // tai khoan
 
 function login(taikhoan) {
@@ -427,3 +499,4 @@ function getDate(dateString) {
   var year = date.getFullYear();
   return day + "/" + month + "/" + year;
 }
+

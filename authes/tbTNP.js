@@ -4,12 +4,11 @@ function createRow(rowData) {
       <tr>
           <td>${rowData.id}</td>
           <td>${rowData.matn}</td>
-          <td>${rowData.tentn}</td>
-          <td>${rowData.tinhtrang}</td>
+          <td>${rowData.maphong}</td>
           <td>${rowData.slco}</td>
 
           <td><a href="form-edittn.html?id=${rowData.id}"><button class="btn btn-info btn-icon-anim btn-square" onclick="updateTNById(${rowData.id});"><i class="fa fa-pencil-square-o"></i></button></a></td>
-          <td><button class="btn btn-info btn-icon-anim btn-square" onclick="delTN(${rowData.id})"><i class="icon-trash"></i></button></td>
+          <td><button class="btn btn-info btn-icon-anim btn-square" onclick="delTNP(${rowData.id})"><i class="icon-trash"></i></button></td>
       </tr>
     `;
     return row;
@@ -18,7 +17,7 @@ function createRow(rowData) {
   (async function () {
     const foodTable = document.querySelector("#foods_table tbody");
     // const URL = "http://localhost:3000/food";
-    const foods = await getAllTN();
+    const foods = await getAllTNP();
     if (foods.length) {
       for (const food of foods) {
         foodTable.appendChild(createRow(food));
@@ -26,9 +25,9 @@ function createRow(rowData) {
     }
   })();
   
-  function delTN(id){
+  function delTNP(id){
     if (confirm("Do you want Delete?")) {
-      deleteTN(id);
+      deleteTNP(id);
       window.location.reload();
     }
   }

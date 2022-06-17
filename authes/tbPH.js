@@ -7,8 +7,9 @@ function createRow(rowData) {
           <td>${rowData.dientich}</td>
           <td>${rowData.dongia}</td>
           <td>${rowData.loaiphong}</td>
-          <td><a href="form-editphong.html?id=${rowData.id}"><button class="btn btn-danger btn-anim" onclick="updateDVById(${rowData.id});"><i class="fa fa-pencil-square-o"></i><span class="btn-text">edit</span></button></a></td>
-          <td><button class="btn btn-danger btn-anim" onclick="delPh(${rowData.id})"><i class="fa fa-trash-o"></i><span class="btn-text">delete</span></button></td>
+
+          <td><a href="form-editphong.html?id=${rowData.id}"><button class="btn btn-info btn-icon-anim btn-square" onclick="updateDVById(${rowData.id});"><i class="fa fa-pencil-square-o"></i></button></a></td>
+          <td><button class="btn btn-info btn-icon-anim btn-square" onclick="delPh(${rowData.id})"><i class="icon-trash"></i></button></td>
       </tr>
     `;
   return row;
@@ -26,6 +27,8 @@ function createRow(rowData) {
 })();
 
 function delPh(id) {
-  deletePh(id);
-  window.location.reload();
+  if (confirm("Do you want Delete?")) {
+    deletePh(id);
+    window.location.reload();
+  }
 }

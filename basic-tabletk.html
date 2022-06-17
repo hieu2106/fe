@@ -379,9 +379,9 @@
   </body>
 
   <script>
-    function findDV() {
+    function findTK() {
       const keyword = document
-        .querySelector("input[name=search_dichVu]")
+        .querySelector("input[name=search_tk]")
         .value.trim();
       searchDVById(keyword).then((data) => {
         const foods_table = document.querySelector("#foods_table tbody");

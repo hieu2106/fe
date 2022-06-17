@@ -119,13 +119,13 @@ document.getElementById("mahddv").addEventListener("keyup", function () {
 
 document.getElementById("btnAdd").addEventListener("click", function () {
   const mahddv = document.querySelector("input[name=mahddv]").value;
-  const madv = document.querySelector("select[name=madv]").value;
+  const tendv = document.querySelector("input[name=tendv]").value;
   const luongsd = document.querySelector("input[name=luongsd]").value;
   const dongia = document.querySelector("input[name=dongia]").value;
 
   const dataPost = {
     mahddv,
-    madv,
+    tendv,
     luongsd,
     dongia,
   };
@@ -136,7 +136,7 @@ document.getElementById("btnSubmit").addEventListener("click", function () {
   const mahddv = document.querySelector("input[name=mahddv]").value;
   const makh = document.querySelector("select[name=makh]").value;
   const ngaylap = date + " " + time;
-  const manv = document.querySelector("select[name=manv]").value;
+  const manv = document.querySelector("select[name=id]").value;
   const tongtien = document.querySelector("input[name=tongtien]").value;
 
   const dataPost = {

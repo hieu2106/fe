@@ -230,21 +230,14 @@
                         <label class="control-label mb-10 text-left">Tên tiện nghi
                           <span class="help"> "Điêu hòa"</span></label>
                         <input type="text" class="form-control" name="tentiennghi" required />
+                      </div> 
+                      <div class="form-group">
+                        <label class="control-label mb-10 text-left">Tình trạng</label>
+                        <input type="text" class="form-control" name="tinhtrang" />
                       </div>
                       <div class="form-group">
                         <label class="control-label mb-10 text-left">Số lượng</label>
                         <input type="text" class="form-control" name="soluong" />
-                      </div>
-                      <div class="form-group mb-30">
-                        <label class="control-label mb-10 text-left">Tình trạng</label>
-                        <div class="radio radio-info">
-                          <input type="radio" name="radio" id="radio1" value="Good" />
-                          <label for="radio1"> Bình thường </label>
-                        </div>
-                        <div class="radio radio-info">
-                          <input type="radio" name="radio" id="radio2" value="Bad" checked="" />
-                          <label for="radio2"> Hỏng </label>
-                        </div>
                       </div>
                   </div>
 
@@ -303,24 +296,24 @@
       const matiennghi = document.querySelector("input[name=matiennghi]");
       const tentiennghi = document.querySelector("input[name=tentiennghi]");
       const soluong = document.querySelector("input[name=soluong]");
-      const radio = document.querySelector("input[name=radio]:checked");
-      matiennghi.value = data.matiennghi;
-      tentiennghi.value = data.tentiennghi;
-      soluong.value = data.soluong;
-      radio.value = data.loaiphong;
+      const tinhtrang = document.querySelector("input[name=tinhtrang]");
+      matiennghi.value = data.matn;
+      tentiennghi.value = data.tentn;
+      tinhtrang.value = data.tinhtrang;
+      soluong.value = data.slco;
     });
 
     function createTN() {
-      const matiennghi = document.querySelector("input[name=matiennghi]").value;
-      const tentiennghi = document.querySelector("input[name=tentiennghi]").value;
-      const soluong = document.querySelector("input[name=soluong]").value;
-      const radio = document.querySelector("input[name=radio]:checked").value;
+      const matn = document.querySelector("input[name=matiennghi]").value;
+      const tentn = document.querySelector("input[name=tentiennghi]").value;
+      const slco = document.querySelector("input[name=soluong]").value;
+      const tinhtrang = document.querySelector("input[name=tinhtrang]").value;
 
       const dataPost = {
-        matiennghi,
-        tentiennghi,
-        soluong,
-        tinhtrang: radio,
+        matn,
+        tentn,
+        tinhtrang,
+        slco,
       };
       updateTNById(id, dataPost).then((data) => {
         console.log(data);

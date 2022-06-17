@@ -11,6 +11,8 @@ function createRow(rowData) {
           <td>${rowData.ngaydi}</td>
           <td><a href="form-editphong.html?id=${rowData.id}"><button class="btn btn-danger btn-anim" onclick="updateDVById(${rowData.id});"><i class="fa fa-pencil-square-o"></i><span class="btn-text">Print</span></button></a></td>
           <td><button class="btn btn-danger btn-anim" onclick="delPT(${rowData.id})"><i class="fa fa-trash-o"></i><span class="btn-text">delete</span></button></td>
+
+          
       </tr>
     `;
     return row;

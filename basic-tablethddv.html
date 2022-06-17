@@ -280,7 +280,9 @@
               <div class="panel panel-default card-view">
                 <div class="panel-heading">
                   <div class="pull-left">
-                    <h6 class="panel-title txt-dark">Quản Lý Tiện Nghi</h6>
+                    <h6 class="panel-title txt-dark">
+                      Thống kê hóa đơn dịch vụ
+                    </h6>
                   </div>
                   <div class="clearfix"></div>
                 </div>
@@ -319,10 +321,17 @@
                         <i class="icon-rocket"></i
                         ><span class="btn-text">Thêm</span>
                       </button>
+
+                      <button
+                        class="btn btn-success btn-anim"
+                        onclick="ExportToExcel('xlsx')"
+                      >
+                        Export table to excel
+                      </button>
                     </div>
                     <div class="table-wrap mt-40">
                       <div id="foods_table" class="table-responsive">
-                        <table class="table mb-0">
+                        <table id="example" class="table mb-0">
                           <thead>
                             <tr>
                               <th scope="col">#</th>
@@ -373,6 +382,12 @@
     <!-- Fancy Dropdown JS -->
     <script src="dist/js/dropdown-bootstrap-extended.js"></script>
 
+    <!-- excel -->
+    <script
+      type="text/javascript"
+      src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"
+    ></script>
+
     <!-- Init JavaScript -->
     <script src="dist/js/init.js"></script>
 
@@ -383,7 +398,7 @@
   <script>
     function findTN() {
       const keyword = document
-        .querySelector("input[name=search_tn]")
+        .querySelector("input[name=search_hddv]")
         .value.trim();
       searchTNById(keyword).then((data) => {
         const foods_table = document.querySelector("#foods_table tbody");
@@ -392,6 +407,14 @@
           foods_table.appendChild(createRow(d));
         });
       });
+    }
+
+    function ExportToExcel(type, fn, dl) {
+      var elt = document.getElementById("example");
+      var wb = XLSX.utils.table_to_book(elt, { sheet: "sheet1" });
+      return dl
+        ? XLSX.write(wb, { bookType: type, bookSST: true, type: "base64" })
+        : XLSX.writeFile(wb, fn || "MySheetName." + (type || "xlsx"));
     }
   </script>
 </html>

@@ -43,7 +43,7 @@
 
     <!-- Custom CSS -->
     <link href="dist/css/style.css" rel="stylesheet" type="text/css" />
-    <script src="./auth.js"></script>
+    <script src="authes/auth.js"></script>
   </head>
 
   <body>
@@ -272,166 +272,76 @@
       <div class="page-wrapper">
         <div class="container-fluid">
           <!-- Title -->
-          <div class="row heading-bg">
-            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-              <h5 class="txt-dark">Sửa thông tin khách hàng</h5>
-            </div>
-            <!-- Breadcrumb -->
-            <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
-              <ol class="breadcrumb">
-                <li><a href="index.html">Dashboard</a></li>
-                <li>
-                  <a href="#"><span>form</span></a>
-                </li>
-                <li class="active"><span>form-element</span></li>
-              </ol>
-            </div>
-            <!-- /Breadcrumb -->
-          </div>
+          <div class="row heading-bg"></div>
           <!-- /Title -->
 
-          <!-- Row -->
           <div class="row">
+            <!-- Basic Table -->
             <div class="col-sm-12">
               <div class="panel panel-default card-view">
-                <!-- <div class="panel-heading">
-									<div class="pull-left">
-										<h6 class="panel-title txt-dark">Basic Form</h6>
-									</div>
-									<div class="clearfix"></div>
-								</div> -->
+                <div class="panel-heading">
+                  <div class="pull-left">
+                    <h6 class="panel-title txt-dark">Quản Lý Tiện Nghi</h6>
+                  </div>
+                  <div class="clearfix"></div>
+                </div>
                 <div class="panel-wrapper collapse in">
                   <div class="panel-body">
-                    <div class="form-wrap">
-                      <form>
-                        <div class="form-group">
-                          <label class="control-label mb-10 text-left"
-                            >Mã khách hàng
-                            <span class="help"> KHMK123</span></label
-                          >
-                          <input
-                            id="makh"
-                            type="text"
-                            class="form-control"
-                            name="makh"
-                          />
-                        </div>
-                        <div class="form-group">
-                          <label class="control-label mb-10 text-left"
-                            >Họ và tên khác hàng
-                            <span class="help"> e.g. "john doe"</span></label
-                          >
-                          <input
-                            type="text"
-                            class="form-control"
-                            name="tenkh"
-                            value="john doe..."
-                            required
-                          />
-                        </div>
-                        <div class="form-group">
-                          <label class="control-label mb-10 text-left"
-                            >Địa chỉ</label
-                          >
-                          <input
-                            type="text"
-                            class="form-control"
-                            name="diachi"
-                          />
-                        </div>
-                        <div class="form-group">
-                          <label class="control-label mb-10 text-left"
-                            >Ngày sinh</label
-                          >
-                          <input
-                            type="date"
-                            name="ngaysinh"
-                            required
-                            pattern="\d{4}-\d{2}-\d{2}"
-                          />
-                          <span class="validity"></span>
-                        </div>
-                        <div class="form-group">
-                          <label class="control-label mb-10 text-left"
-                            >Số điện thoại</label
-                          >
-                          <input
-                            type="text"
-                            class="form-control"
-                            name="sdt"
-                            placeholder="Số điện thoại"
-                          />
-                        </div>
-                        <div class="form-group">
-                          <label class="control-label mb-10 text-left"
-                            >Quốc tịch</label
-                          >
-                          <input
-                            type="text"
-                            class="form-control"
-                            name="quoctich"
-                          />
-                        </div>
-                        <div class="form-group">
-                          <label class="control-label mb-10 text-left"
-                            >Hộ chiếu</label
-                          >
-                          <input
-                            type="text"
-                            class="form-control"
-                            name="hochieu"
-                          />
-                        </div>
-                        <div class="form-group">
-                          <label class="control-label mb-10 text-left"
-                            >CCCD</label
-                          >
-                          <input type="text" class="form-control" name="cccd" />
-                        </div>
-                        <div class="form-group mb-30">
-                          <label class="control-label mb-10 text-left"
-                            >Giới tính</label
-                          >
-                          <div class="radio radio-info">
-                            <input
-                              type="radio"
-                              name="radio"
-                              id="radio1"
-                              value="male"
-                            />
-                            <label for="radio1"> Nam </label>
-                          </div>
-                          <div class="radio radio-info">
-                            <input
-                              type="radio"
-                              name="radio"
-                              id="radio2"
-                              value="female"
-                              checked=""
-                            />
-                            <label for="radio2"> Nữ </label>
-                          </div>
-                        </div>
+                    <!-- <p class="text-muted">Add class <code>table</code> in table tag.</p> -->
+                    <div class="input-group" style="padding-bottom: 5px">
+                      <input
+                        type="text"
+                        name="search_tnp"
+                        class="form-control"
+                        placeholder="Search"
+                      />
+                      <span class="input-group-btn">
+                        <button
+                          type="button"
+                          class="btn btn-default"
+                          data-target="#search_form"
+                          data-toggle="collapse"
+                          aria-label="Close"
+                          aria-expanded="true"
+                          onclick="findTNP();"
+                        >
+                          <i class="zmdi zmdi-search"></i>
+                        </button>
+                      </span>
+                    </div>
 
-                        <div class="form-group mb-0">
-                          <button
-                            type="button"
-                            class="btn btn-success btn-anim"
-                            id="btnSubmit"
-                            onclick="createKH()"
-                          >
-                            <i class="icon-rocket"></i
-                            ><span class="btn-text">submit</span>
-                          </button>
-                        </div>
-                      </form>
+                    <div class="form-group mb-0">
+                      <button
+                        type="button"
+                        class="btn btn-success btn-anim"
+                        onclick="location.href = 'form-elementtn.html';"
+                        id="btnSubmit"
+                      >
+                        <i class="icon-rocket"></i
+                        ><span class="btn-text">Thêm</span>
+                      </button>
+                    </div>
+                    <div class="table-wrap mt-40">
+                      <div id="foods_table" class="table-responsive">
+                        <table class="table mb-0">
+                          <thead>
+                            <tr>
+                              <th scope="col">#</th>
+                              <th scope="col">Mã tiện nghi</th>
+                              <th scope="col">Mã phòng</th>
+                              <th scope="col">Số lượng</th>
+                            </tr>
+                          </thead>
+                          <tbody></tbody>
+                        </table>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+            <!-- /Basic Table -->
           </div>
-          <!-- /Row -->
         </div>
       </div>
       <!-- /Main Content -->
@@ -446,13 +356,12 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
-    <script src="vendors/bower_components/jasny-bootstrap/dist/js/jasny-bootstrap.min.js"></script>
+    <!-- Piety JavaScript -->
+    <script src="vendors/bower_components/peity/jquery.peity.min.js"></script>
+    <script src="dist/js/peity-data.js"></script>
 
     <!-- Slimscroll JavaScript -->
     <script src="dist/js/jquery.slimscroll.js"></script>
-
-    <!-- Fancy Dropdown JS -->
-    <script src="dist/js/dropdown-bootstrap-extended.js"></script>
 
     <!-- Owl JavaScript -->
     <script src="vendors/bower_components/owl.carousel/dist/owl.carousel.min.js"></script>
@@ -460,36 +369,28 @@
     <!-- Switchery JavaScript -->
     <script src="vendors/bower_components/switchery/dist/switchery.min.js"></script>
 
+    <!-- Fancy Dropdown JS -->
+    <script src="dist/js/dropdown-bootstrap-extended.js"></script>
+
     <!-- Init JavaScript -->
     <script src="dist/js/init.js"></script>
 
     <script src="authes/handles.js"></script>
-
-    <script>
-      function createKH() {
-        var makh = document.querySelector("input[name=makh]").value;
-        var tenkh = document.querySelector("input[name=tenkh]").value;
-        var diachi = document.querySelector("input[name=diachi]").value;
-        var ngaysinh = document.querySelector("input[name=ngaysinh]").value;
-        var sdt = document.querySelector("input[name=sdt]").value;
-        var quoctich = document.querySelector("input[name=quoctich]").value;
-        var cccd = document.querySelector("input[name=cccd]").value;
-        var hochieu = document.querySelector("input[name=hochieu]").value;
-        var radio = document.querySelector("input[name=radio]:checked").value;
-
-        var dataPost = {
-          makh,
-          tenkh,
-          diachi,
-          ngaysinh,
-          sdt,
-          quoctich,
-          cccd,
-          hochieu,
-          gender: radio,
-        };
-        createNewKH(dataPost).then(console.log);
-      }
-    </script>
+    <script src="authes/tbTN.js"></script>
   </body>
+
+  <script>
+    function findTNP() {
+      const keyword = document
+        .querySelector("input[name=search_tnp]")
+        .value.trim();
+      searchTNById(keyword).then((data) => {
+        const foods_table = document.querySelector("#foods_table tbody");
+        foods_table.replaceChildren();
+        const rows = data.map((d) => {
+          foods_table.appendChild(createRow(d));
+        });
+      });
+    }
+  </script>
 </html>

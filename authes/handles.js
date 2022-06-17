@@ -323,7 +323,11 @@ function getAllTK() {
 //dich vu su dung
 function getAllDVSD() {
   const url = API_BASE_URL + "/dichvusd";
-  return fetch(url).then((res) => res.json());
+  return fetch(url, {
+    headers: {
+      authorization: tokens.accessToken,
+    },
+  }).then((res) => res.json());
 }
 
 function createNewDVSD(dichvusd) {
@@ -333,6 +337,7 @@ function createNewDVSD(dichvusd) {
     body: JSON.stringify(dichvusd),
     headers: {
       "Content-type": "application/json",
+      authorization: tokens.accessToken,
     },
   }).then((res) => res.json());
 }

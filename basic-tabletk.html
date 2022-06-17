@@ -374,20 +374,22 @@
     <!-- Init JavaScript -->
     <script src="dist/js/init.js"></script>
 
-    <script src="handles.js"></script>
-    <script src="tbTK.js"></script>
+    <script src="authes/handles.js"></script>
+    <script src="authes/tbTK.js"></script>
   </body>
 
   <script>
-      function findDV() {
-          const keyword = document.querySelector("input[name=search_dichVu]").value.trim();
-          searchDVById(keyword).then(data => {
-          const foods_table = document.querySelector('#foods_table tbody');
-          foods_table.replaceChildren();
-          const rows = data.map(d => {
-            foods_table.appendChild(createRow(d));
-          });
+    function findDV() {
+      const keyword = document
+        .querySelector("input[name=search_dichVu]")
+        .value.trim();
+      searchDVById(keyword).then((data) => {
+        const foods_table = document.querySelector("#foods_table tbody");
+        foods_table.replaceChildren();
+        const rows = data.map((d) => {
+          foods_table.appendChild(createRow(d));
+        });
       });
-      }
+    }
   </script>
 </html>

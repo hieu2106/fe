@@ -28,9 +28,8 @@ function createRow(rowData) {
 })();
 
 function delDV(id) {
-  deleteDV(id);
-  window.location.reload();
+  if (confirm("Do you want Delete?")) {
+    deleteDV(id);
+    window.location.reload();
+  }
 }
-// function deleteDV(name){
-//     return confirm("Bạn có chắc chắn muốn xóa dịch vụ: " + name + " ?");
-// }

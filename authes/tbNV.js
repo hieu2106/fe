@@ -4,13 +4,13 @@ function createRow(rowData) {
       <tr>
           <td>${rowData.id}</td>
           <td>${rowData.name}</td>
-          <td>${rowData.address}</td>
           <td>${rowData.email}</td>
+          <td>${rowData.address}</td>
           <td>${getDate(rowData.dob)}</td>
           <td>${rowData.phone}</td>
           <td>${rowData.gender}</td>
           <td><a href="form-editnv.html?id=${rowData.id}">
-          <button class="btn btn-danger btn-anim" onclick="updateDVById(${
+          <button class="btn btn-danger btn-anim" onclick="updateNVById(${
             rowData.id
           });"><i class="fa fa-pencil-square-o"></i><span class="btn-text">edit</span></button></a></td>       
           <td><button class="btn btn-danger btn-anim" onclick="delNV(${
@@ -30,6 +30,7 @@ function createRow(rowData) {
       foodTable.appendChild(createRow(food));
     }
   }
+  console.log(foods);
 })();
 
 function delNV(id) {

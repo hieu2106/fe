@@ -95,12 +95,12 @@ function addRow(rowData) {
 (async () => {
   const nvs = await getAllNV();
   console.log(nvs);
-  const select = document.querySelector("#manv");
+  const select = document.querySelector("#id");
   const tennvInput = document.querySelector("#name");
   nvs.forEach((nv) => {
     const option = document.createElement("option");
-    option.value = nv.manv;
-    option.innerText = nv.manv;
+    option.value = nv.id;
+    option.innerText = nv.id;
     option.dataset.name = nv.name;
     select.appendChild(option);
   });

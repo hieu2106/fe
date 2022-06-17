@@ -39,6 +39,7 @@ function createRow(rowData) {
       foodTable.appendChild(createRow(food));
     }
   }
+  console.log(foods);
 })();
 
 function delKH(id) {

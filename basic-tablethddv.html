@@ -302,7 +302,7 @@
                           data-toggle="collapse"
                           aria-label="Close"
                           aria-expanded="true"
-						  onclick="findTN();"
+                          onclick="findTN();"
                         >
                           <i class="zmdi zmdi-search"></i>
                         </button>
@@ -376,20 +376,22 @@
     <!-- Init JavaScript -->
     <script src="dist/js/init.js"></script>
 
-    <script src="handles.js"></script>
-    <script src="tbHDDV.js"></script>
+    <script src="authes/handles.js"></script>
+    <script src="authes/tbHDDV.js"></script>
   </body>
 
-	<script>
-		function findTN() {
-			const keyword = document.querySelector("input[name=search_tn]").value.trim();
-			searchTNById(keyword).then(data => {
-			const foods_table = document.querySelector('#foods_table tbody');
-			foods_table.replaceChildren();
-			const rows = data.map(d => {
-			foods_table.appendChild(createRow(d));
-			});
-		});
-		}
-	</script>
+  <script>
+    function findTN() {
+      const keyword = document
+        .querySelector("input[name=search_tn]")
+        .value.trim();
+      searchTNById(keyword).then((data) => {
+        const foods_table = document.querySelector("#foods_table tbody");
+        foods_table.replaceChildren();
+        const rows = data.map((d) => {
+          foods_table.appendChild(createRow(d));
+        });
+      });
+    }
+  </script>
 </html>

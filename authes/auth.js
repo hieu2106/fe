@@ -1,12 +1,15 @@
 (function () {
   const tokens = JSON.parse(localStorage.getItem("tokens") || "{}");
 
+  console.log(new Date(tokens.expiresIn), new Date());
+
   if (!tokens.accessToken || new Date(tokens.refreshExpiresIn) < new Date()) {
     window.location.href = "/form-login.html";
   }
 
   if (new Date(tokens.expiresIn) < new Date()) {
-    fetch("http://26.91.201.28:3000/api/taikhoan/refresh-token", {
+    // 26.91.201.28
+    fetch("http://localhost:3000/api/taikhoan/refresh-token", {
       method: "POST",
       body: JSON.stringify({
         refreshToken: tokens.refreshToken,

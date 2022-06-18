@@ -65,8 +65,7 @@ function deleteNV(id) {
 }
 
 function searchNVById(keyword) {
-  const url =
-    API_BASE_URL + "/nhanvien/search?name=" + encodeURIComponent(keyword);
+  const url = API_BASE_URL + "/nhanvien/search?name=" + encodeURIComponent(keyword);
   return fetch(url, {
     headers: {
       "Content-type": "application/json",
@@ -126,8 +125,7 @@ function getDVByID(id) {
 }
 
 function searchDVById(keyword) {
-  const url =
-    API_BASE_URL + "/dichvu/search?tendv=" + encodeURIComponent(keyword);
+  const url = API_BASE_URL + "/dichvu/search?tendv=" + encodeURIComponent(keyword);
   return fetch(url, {
     headers: {
       "Content-type": "application/json",
@@ -186,8 +184,7 @@ function deleteKH(id) {
 }
 
 function searchKHById(keyword) {
-  const url =
-    API_BASE_URL + "/khachhang/search?tenkh=" + encodeURIComponent(keyword);
+  const url = API_BASE_URL + "/khachhang/search?tenkh=" + encodeURIComponent(keyword);
   return fetch(url, {
     headers: {
       "Content-type": "application/json",
@@ -243,8 +240,7 @@ function deleteTN(id) {
 }
 
 function searchTNById(keyword) {
-  const url =
-    API_BASE_URL + "/tiennghiphong/search?tentn=" + encodeURIComponent(keyword);
+  const url = API_BASE_URL + "/tiennghiphong/search?tentn=" + encodeURIComponent(keyword);
   return fetch(url, {
     headers: {
       "Content-type": "application/json",
@@ -309,8 +305,7 @@ function deletePh(id) {
 }
 
 function searchPhById(keyword) {
-  const url =
-    API_BASE_URL + "/phong/search?maphong=" + encodeURIComponent(keyword);
+  const url = API_BASE_URL + "/phong/search?maphong=" + encodeURIComponent(keyword);
   return fetch(url, {
     headers: {
       "Content-type": "application/json",
@@ -487,8 +482,7 @@ function deleteTNP(id) {
 }
 
 function searchTNPById(keyword) {
-  const url =
-    API_BASE_URL + "/tiennghiphong/search?matn=" + encodeURIComponent(keyword);
+  const url = API_BASE_URL + "/tiennghiphong/search?matn=" + encodeURIComponent(keyword);
   return fetch(url, {
     headers: {
       "Content-type": "application/json",
@@ -518,3 +512,25 @@ function getDate(dateString) {
   return day + "/" + month + "/" + year;
 }
 
+// PHONG
+function getPhongTrong() {
+  const url = API_BASE_URL + "/phong/trong";
+  return fetch(url, {
+    headers: {
+      "Content-type": "application/json",
+      authorization: tokens.accessToken,
+    },
+  }).then((res) => res.json());
+}
+
+function createCheckIn(data) {
+  const url = API_BASE_URL + "/phong/thuephong";
+  return fetch(url, {
+    method: "POST",
+    body: JSON.stringify(data),
+    headers: {
+      "Content-type": "application/json",
+      authorization: tokens.accessToken,
+    },
+  }).then((res) => res.json());
+}

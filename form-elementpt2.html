@@ -26,6 +26,8 @@
 
 	<!-- Custom CSS -->
 	<link href="dist/css/style.css" rel="stylesheet" type="text/css">
+
+	<script src="authes/auth.js"></script>
 </head>
 
 <body>
@@ -259,37 +261,23 @@
 												<select class="form-control" name="maphong" id="maphong">
 												</select>
 											</div>
-											
+
 											<div class="col-sm-6">
 												<div class="form-group">
-												  <label class="control-label mb-10 text-left"
-													>Ngày đến</label
-												  >
-												  <input
-													class="form-control"
-													type="date"
-													name="ngayden"
-													required
-													pattern="\d{4}-\d{2}-\d{2}"
-												  />
-												  <span class="validity"></span>
+													<label class="control-label mb-10 text-left">Ngày đến</label>
+													<input class="form-control" type="date" name="ngayden" required
+														pattern="\d{4}-\d{2}-\d{2}" />
+													<span class="validity"></span>
 												</div>
-											  </div>
-											  <div class="col-sm-6">
+											</div>
+											<div class="col-sm-6">
 												<div class="form-group">
-												  <label class="control-label mb-10 text-left"
-													>Ngày đi</label
-												  >
-												  <input
-													class="form-control"
-													type="date"
-													name="ngaydi"
-													required
-													pattern="\d{4}-\d{2}-\d{2}"
-												  />
-												  <span class="validity"></span>
+													<label class="control-label mb-10 text-left">Ngày đi</label>
+													<input class="form-control" type="date" name="ngaydi" required
+														pattern="\d{4}-\d{2}-\d{2}" />
+													<span class="validity"></span>
 												</div>
-											  </div>
+											</div>
 											<div class="form-group mb-0">
 												<button type="button" class="btn btn-success btn-anim" id="btnAdd">
 													<i class="icon-rocket"></i><span class="btn-text">Add</span>
@@ -323,24 +311,24 @@
 									<div class="panel-body">
 										<!-- <p class="text-muted">Add class <code>table</code> in table tag.</p> -->
 										<div class="form-wrap">
-												<div class="table-wrap mt-40">
-													<div id="hoadon_table" class="table-responsive">
-														<table id="example" class="table mb-0">
-															<thead>
-																<tr>
-																	<th scope="col">#</th>
-																	<th scope="col">Mã khách hàng</th>
-																	<th scope="col">Mã phòng</th>
-																	<th scope="col">Ngày đến</th>
-																	<th scope="col">Ngày đi</th>
-																</tr>
-															</thead>
-															<tbody>
-	
-															</tbody>
-														</table>
-													</div>
-												
+											<div class="table-wrap mt-40">
+												<div id="hoadon_table" class="table-responsive">
+													<table id="example" class="table mb-0">
+														<thead>
+															<tr>
+																<th scope="col">#</th>
+																<th scope="col">Mã khách hàng</th>
+																<th scope="col">Mã phòng</th>
+																<th scope="col">Ngày đến</th>
+																<th scope="col">Ngày đi</th>
+															</tr>
+														</thead>
+														<tbody>
+
+														</tbody>
+													</table>
+												</div>
+
 											</div>
 										</div>
 
@@ -350,7 +338,7 @@
 							<div class="form-group mb-0">
 								<button id="btn-one" class="btn btn-success btn-lg">
 									Print Bill
-								  </button>
+								</button>
 							</div>
 						</div>
 						<!-- /Basic Table -->
@@ -366,12 +354,9 @@
 		<!-- JavaScript -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
 
-		<script
-		  src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"
-		  integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA=="
-		  crossorigin="anonymous"
-		  referrerpolicy="no-referrer"
-		></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"
+			integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA=="
+			crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 		<!-- jQuery -->
 		<script src="vendors/bower_components/jquery/dist/jquery.min.js"></script>
 
@@ -397,7 +382,8 @@
 
 		<script src="authes/handles.js"></script>
 
-		<script src="authes/hddv.js"></script>
+		<script src="authes/thuephong.js"></script>
 
 </body>
+
 </html>

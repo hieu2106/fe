@@ -15,7 +15,7 @@ function createRow(rowData) {
   (async function () {
     const foodTable = document.querySelector("#foods_table tbody");
     // const URL = "http://localhost:3000/food";
-    const foods = await getDVSDByID();
+    const foods = await getAllDVSD();
     if (foods.length) {
       for (const food of foods) {
         foodTable.appendChild(createRow(food));

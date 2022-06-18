@@ -84,7 +84,7 @@
 
   const phongTrongsOriginal = await getPhongTrong();
   const phongTrongs = [...phongTrongsOriginal];
-  const phongSelected = [];
+  let phongSelected = [];
   reloadSelect(phongTrongs, document.querySelector("[name=maphong]"), "maphong", "maphong");
 
   document.getElementById("btnAdd").addEventListener("click", onAddPhong);

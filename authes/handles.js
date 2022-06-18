@@ -320,11 +320,29 @@ function searchPhById(keyword) {
 }
 
 //Tai khoan
-function getAllTK() {
+function createNewTaiKhoan(taikhoan) {
   const url = API_BASE_URL + "/taikhoan";
-  return fetch(url).then((res) => res.json());
+  return fetch(url, {
+    method: "POST",
+    body: JSON.stringify(taikhoan),
+    headers: {
+      "Content-type": "application/json",
+      authorization: tokens.accessToken,
+    },
+  }).then((res) => res.json());
 }
 
+function updateTKByUsername(taikhoan) {
+  const url = API_BASE_URL + "/taikhoan/password";
+  return fetch(url, {
+    method: "PATCH",
+    body: JSON.stringify(taikhoan),
+    headers: {
+      "Content-type": "application/json",
+      authorization: tokens.accessToken,
+    },
+  }).then((res) => res.json());
+}
 //dich vu su dung
 function getAllDVSD() {
   const url = API_BASE_URL + "/dichvusd";

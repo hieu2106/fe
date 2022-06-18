@@ -43,6 +43,7 @@
 
     <!-- Custom CSS -->
     <link href="dist/css/style.css" rel="stylesheet" type="text/css" />
+    <script src="./authes/auth.js"></script>
   </head>
 
   <body>
@@ -317,7 +318,7 @@
                             type="text"
                             class="form-control"
                             name="username"
-                            id="madv"
+                            id="username"
                           />
                         </div>
                         <div class="form-group">
@@ -359,6 +360,7 @@
                             type="button"
                             class="btn btn-success btn-anim"
                             id="btnSubmit"
+                            onclick="updateTK();"
                           >
                             <i class="icon-rocket"></i
                             ><span class="btn-text">submit</span>
@@ -406,55 +408,31 @@
     <script src="authes/handles.js"></script>
 
     <script>
-      document
-        .getElementById("btnSubmit")
-        .addEventListener("click", function () {
-          let errors = [];
-          // const form = document.getElementById('myForm');
-          const madv = document.querySelector("input[name=madv]").value.trim();
-          // const tendv = document.querySelector("input[name=tendv]").value.trim();
-          // if(!tendv){
-          //     alert('Vui lòng nhập mã dịch vụ')
-          // }
-
-          const regexMaDV = /^DV[a-z0-9]+$/i;
-          if (!regexMaDV.test(madv)) {
-            errors.push({
-              field: "madv",
-              error: "Invalid madv",
-            });
-            // console.log(errors);
-            alert("Mã dịch vụ phải bắt đầu bằng DV");
-            return false;
-          }
-
-          // document.getElementById('demo').innerHTML=madv;
-
-          createDV();
-          // window.location.href = "basic-tabledv.html";
-        });
-
-      function createDV() {
-        const madv = document.querySelector("input[name=madv]").value;
-        const tendv = document.querySelector("input[name=tendv]").value;
-        const dongia = document.querySelector("input[name=dongia]").value;
-        const mota = document.querySelector("input[name=mota]").value;
-
-        const dataPost = {
-          madv,
-          tendv,
-          dongia,
-          mota,
+      
+        function updateTK() {
+        const username = document.querySelector("input[name=username]").value;
+        const oldpass = document.querySelector("input[name=oldpass]").value;
+        const password = document.querySelector("input[name=newpass]").value;
+        const renewpass = document.querySelector("input[name=renewpass]").value;
+        if(renewpass == password){
+          const dataPost = {
+          username,
+          password,
         };
-        createNewDV(dataPost).then((data) => {
+        updateTKByUsername(username, dataPost).then((data) => {
           console.log(data);
           if (data.error) {
             // do something on error
             alert(data.error.sqlMessage);
           }
-          window.location.href = "basic-tabledv.html";
+          // window.location.href = "basic-tabledv.html";
         });
+        } else {
+          alert('Mat khau deo giong nhau nhap lai di');
+        }
+        
       }
+      
     </script>
   </body>
 </html>

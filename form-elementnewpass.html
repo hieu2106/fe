@@ -410,16 +410,15 @@
     <script>
       
         function updateTK() {
-        const username = document.querySelector("input[name=username]").value;
-        const oldpass = document.querySelector("input[name=oldpass]").value;
-        const password = document.querySelector("input[name=newpass]").value;
+        const currentPassword = document.querySelector("input[name=oldpass]").value;
+        const newPassword = document.querySelector("input[name=newpass]").value;
         const renewpass = document.querySelector("input[name=renewpass]").value;
-        if(renewpass == password){
+        if(renewpass == newPassword){
           const dataPost = {
-          username,
-          password,
+            currentPassword,
+            newPassword,
         };
-        updateTKByUsername(username, dataPost).then((data) => {
+        updateTKByUsername(dataPost).then((data) => {
           console.log(data);
           if (data.error) {
             // do something on error

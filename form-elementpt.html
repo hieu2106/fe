@@ -310,29 +310,21 @@
                     <div class="form-wrap">
                       <form>
                         <div class="form-group">
+                          
                           <label
-                            for="manv"
+                            for="makh"
                             class="control-label mb-10 text-left"
-                            >Mã khách hàng</label
+                            >Chọn khách hàng</label
                           >
-                          <input
-                            type="text"
+                          <select
                             class="form-control"
                             name="makh"
                             id="makh"
-                          />
+                          >
+                          <option value="">--Chọn khách hàng--</option>
+                        </select>
                         </div>
-                        <div class="form-group">
-                          <label class="control-label mb-10 text-left"
-                            >Mã phiếu thuê
-                          </label>
-                          <input
-                            id="mapt"
-                            type="text"
-                            class="form-control"
-                            name="mapt"
-                          />
-                        </div>
+                        
                         <div class="form-group">
                           <label
                             for="manv"
@@ -343,8 +335,11 @@
                             class="form-control"
                             name="maphong"
                             id="maphong"
-                          ></select>
+                          >
+                          <option value="">--Chọn mã phòng--</option>
+                        </select>
                         </div>
+
                         <div class="form-group">
                           <label class="control-label mb-10 text-left"
                             >Số tiền đặt cọc</label
@@ -356,6 +351,7 @@
                             id="tiencoc"
                           />
                         </div>
+                        
                         <div class="col-sm-6">
                           <div class="form-group">
                             <label class="control-label mb-10 text-left"
@@ -439,54 +435,6 @@
 
     <script src="authes/handles.js"></script>
 
-    <script>
-      const myKey = window.location.search;
-      const params = new URLSearchParams(myKey);
-      const id = params.get("id");
-
-      getKHByID(id).then((data) => {
-        const makh = document.querySelector("input[name=makh]");
-        makh.value = data.makh;
-      });
-
-      (async () => {
-        const phongs = await getAllPh();
-        console.log(phongs);
-        const select = document.querySelector("#maphong");
-        phongs.forEach((ph) => {
-          const option = document.createElement("option");
-          option.value = ph.maphong;
-          option.innerText = ph.maphong;
-          select.appendChild(option);
-        });
-      })();
-
-      function createPT() {
-        const mapt = document.querySelector("input[name=mapt]").value;
-        const maphong = document.querySelector("select[name=maphong]").value;
-        const tiencoc = document.querySelector("input[name=tiencoc]").value;
-        const ngayden = document.querySelector("input[name=ngayden]").value;
-        const ngaydi = document.querySelector("input[name=ngaydi]").value;
-        const makh = document.querySelector("input[name=makh]").value;
-
-        const dataPost = {
-          mapt,
-          maphong,
-          tiencoc,
-          ngayden,
-          ngaydi,
-          makh,
-        };
-        createNewPT(dataPost).then((data) => {
-          console.log(data);
-          if (data.error) {
-            // do something on error
-            alert(data.error.sqlMessage);
-          } else {
-            window.location.href = "basic-tablept.html";
-          }
-        });
-      }
-    </script>
+    
   </body>
 </html>

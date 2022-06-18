@@ -156,7 +156,7 @@
                   </ul>
                 </li>
                 <li class="divider"></li>
-                <li>
+                <li id="logout" onclick="logout();">
                   <a href="#"
                     ><i class="zmdi zmdi-power"></i><span>Log Out</span></a
                   >
@@ -324,5 +324,12 @@
     <!-- Init JavaScript -->
     <script src="dist/js/init.js"></script>
     <script src="dist/js/dashboard-data.js"></script>
+
+    <script>
+      function logout(){
+        localStorage.removeItem("tokens");
+        window.location.href = "form-login.html";
+      }
+    </script>
   </body>
 </html>

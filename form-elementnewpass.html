@@ -211,7 +211,10 @@
                 <a href="form-elementhddv.html">Hóa Đơn Dịch Vụ</a>
               </li>
               <li>
-                <a href="basic-tablebill.html">Hóa Đơn Thanh Toán</a>
+                <a href="basic-tabletraphong.html">Hóa đơn thanh toán trả phòng</a>
+              </li>
+              <li>
+                <a href="form-elementpt.html">Tạo phiếu thuê phòng</a>
               </li>
             </ul>
           </li>
@@ -244,6 +247,12 @@
               <li>
                 <a href="basic-tabletn.html">Quản lý Tiện Nghi</a>
               </li>
+              <li>
+                <a href="basic-tabletnp.html">Quản lý Tiện Nghi Phòng</a>
+              </li>
+              <li>
+                <a href="basic-tablethddv.html">Quản lý Tiện Nghi</a>
+              </li>
             </ul>
           </li>
           <li>
@@ -264,7 +273,7 @@
                 <a href="basic-tablethddv.html">Thống Kê Hóa Đơn</a>
               </li>
               <li>
-                <a href="themify.html">Thống Kê Khách Hàng</a>
+                <a href="basic-tablephongdatra.html">Thống Kê Phòng Đã Trả</a>
               </li>
             </ul>
           </li>
@@ -276,6 +285,7 @@
       </div>
       <!-- /Left Sidebar Menu -->
     </div>
+
       <!-- Main Content -->
       <div class="page-wrapper">
         <div class="container-fluid">
@@ -312,17 +322,7 @@
                   <div class="panel-body">
                     <div class="form-wrap">
                       <form id="myForm">
-                        <div class="form-group">
-                          <label class="control-label mb-10 text-left"
-                            >Tên tài khoản</label
-                          >
-                          <input
-                            type="text"
-                            class="form-control"
-                            name="username"
-                            id="username"
-                          />
-                        </div>
+                        
                         <div class="form-group">
                           <label class="control-label mb-10 text-left"
                             >Mật khẩu cũ</label
@@ -429,11 +429,15 @@
           // window.location.href = "basic-tabledv.html";
         });
         } else {
-          alert('Mat khau deo giong nhau nhap lai di');
+          alert('Mat khau khong giong nhau nhap lai di');
         }
         
       }
       
+      function logout(){
+        localStorage.removeItem("tokens");
+        window.location.href = "form-login.html";
+      }
     </script>
   </body>
 </html>

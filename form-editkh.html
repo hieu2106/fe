@@ -211,7 +211,10 @@
                 <a href="form-elementhddv.html">Hóa Đơn Dịch Vụ</a>
               </li>
               <li>
-                <a href="basic-tablebill.html">Hóa Đơn Thanh Toán</a>
+                <a href="basic-tabletraphong.html">Hóa đơn thanh toán trả phòng</a>
+              </li>
+              <li>
+                <a href="form-elementpt.html">Tạo phiếu thuê phòng</a>
               </li>
             </ul>
           </li>
@@ -244,6 +247,12 @@
               <li>
                 <a href="basic-tabletn.html">Quản lý Tiện Nghi</a>
               </li>
+              <li>
+                <a href="basic-tabletnp.html">Quản lý Tiện Nghi Phòng</a>
+              </li>
+              <li>
+                <a href="basic-tablethddv.html">Quản lý Tiện Nghi</a>
+              </li>
             </ul>
           </li>
           <li>
@@ -264,7 +273,7 @@
                 <a href="basic-tablethddv.html">Thống Kê Hóa Đơn</a>
               </li>
               <li>
-                <a href="themify.html">Thống Kê Khách Hàng</a>
+                <a href="basic-tablephongdatra.html">Thống Kê Phòng Đã Trả</a>
               </li>
             </ul>
           </li>
@@ -276,7 +285,6 @@
       </div>
       <!-- /Left Sidebar Menu -->
     </div>
-    <!-- /Left Sidebar Menu -->
 
     <!-- Main Content -->
     <div class="page-wrapper">
@@ -408,18 +416,43 @@
   <script src="authes/handles.js"></script>
 
   <script>
-    function createKH() {
-      var makh = document.querySelector("input[name=makh]").value;
-      var tenkh = document.querySelector("input[name=tenkh]").value;
-      var diachi = document.querySelector("input[name=diachi]").value;
-      var ngaysinh = document.querySelector("input[name=ngaysinh]").value;
-      var sdt = document.querySelector("input[name=sdt]").value;
-      var quoctich = document.querySelector("input[name=quoctich]").value;
-      var cccd = document.querySelector("input[name=cccd]").value;
-      var hochieu = document.querySelector("input[name=hochieu]").value;
-      var radio = document.querySelector("input[name=radio]:checked").value;
+    const myKey = window.location.search;
+        const params = new URLSearchParams(myKey);
+        const id = params.get('id');
+    
+        getKHByID(id).then(data => {
+          const makh = document.querySelector("input[name=makh]");
+          const tenkh = document.querySelector("input[name=tenkh]");
+          const diachi = document.querySelector("input[name=diachi]");
+          const ngaysinh = document.querySelector("input[name=ngaysinh]");
+          const sdt = document.querySelector("input[name=sdt]");
+          const quoctich = document.querySelector("input[name=quoctich]");
+          const cccd = document.querySelector("input[name=cccd]");
+          const hochieu = document.querySelector("input[name=hochieu]");
+          const radio = document.querySelector("input[name=radio]:checked");
+            makh.value = data.makh;
+            tenkh.value = data.tenkh;
+            diachi.value = data.diachi;
+            ngaysinh.value = data.ngaysinh;
+            sdt.value = data.sdt;
+            quoctich.value = data.quoctich;
+            cccd.value = data.cccd;
+            hochieu.value = data.hochieu;
+            radio.value = data.gender;
+          });
 
-      var dataPost = {
+    function createKH() {
+      const makh = document.querySelector("input[name=makh]").value;
+      const tenkh = document.querySelector("input[name=tenkh]").value;
+      const diachi = document.querySelector("input[name=diachi]").value;
+      const ngaysinh = document.querySelector("input[name=ngaysinh]").value;
+      const sdt = document.querySelector("input[name=sdt]").value;
+      const quoctich = document.querySelector("input[name=quoctich]").value;
+      const cccd = document.querySelector("input[name=cccd]").value;
+      const hochieu = document.querySelector("input[name=hochieu]").value;
+      const radio = document.querySelector("input[name=radio]:checked").value;
+
+      const dataPost = {
         makh,
         tenkh,
         diachi,
@@ -430,8 +463,19 @@
         hochieu,
         gender: radio,
       };
-      createNewKH(dataPost).then(console.log);
+      updateKHById(id, dataPost).then((data) => {
+            console.log(data);
+            if (data.message) alert(data.message)
+            else {
+              // window.location.href = "basic-tablekh.html";
+            }
+          });
     }
+
+    function logout(){
+        localStorage.removeItem("tokens");
+        window.location.href = "form-login.html";
+      }
   </script>
 </body>
 

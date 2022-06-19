@@ -103,6 +103,7 @@ function updateDVById(id, dichvu) {
     body: JSON.stringify(dichvu),
     headers: {
       "Content-type": "application/json",
+      authorization: tokens.accessToken,
     },
   }).then((res) => res.json());
 }
@@ -229,13 +230,22 @@ function updateTNById(id, tiennghi) {
 
 function getTNByID(id) {
   const url = API_BASE_URL + "/tiennghi/" + id;
-  return fetch(url).then((res) => res.json());
+  return fetch(url, {
+    headers: {
+      "Content-type": "application/json",
+      authorization: tokens.accessToken,
+    },
+  }).then((res) => res.json());
 }
 
 function deleteTN(id) {
   const url = API_BASE_URL + "/tiennghi/" + id;
   return fetch(url, {
     method: "DELETE",
+    headers: {
+      "Content-type": "application/json",
+      authorization: tokens.accessToken,
+    },
   }).then((res) => res.json());
 }
 
@@ -380,7 +390,11 @@ function createNewHDDV(hddichvu) {
 
 function getAllHDDV() {
   const url = API_BASE_URL + "/hddichvu";
-  return fetch(url).then((res) => res.json());
+  return fetch(url, {
+    headers: {
+      authorization: tokens.accessToken,
+    },
+  }).then((res) => res.json());
 }
 
 function deletePT(id) {

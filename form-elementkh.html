@@ -211,7 +211,10 @@
                 <a href="form-elementhddv.html">Hóa Đơn Dịch Vụ</a>
               </li>
               <li>
-                <a href="basic-tablebill.html">Hóa Đơn Thanh Toán</a>
+                <a href="basic-tabletraphong.html">Hóa đơn thanh toán trả phòng</a>
+              </li>
+              <li>
+                <a href="form-elementpt.html">Tạo phiếu thuê phòng</a>
               </li>
             </ul>
           </li>
@@ -244,6 +247,12 @@
               <li>
                 <a href="basic-tabletn.html">Quản lý Tiện Nghi</a>
               </li>
+              <li>
+                <a href="basic-tabletnp.html">Quản lý Tiện Nghi Phòng</a>
+              </li>
+              <li>
+                <a href="basic-tablethddv.html">Quản lý Tiện Nghi</a>
+              </li>
             </ul>
           </li>
           <li>
@@ -264,7 +273,7 @@
                 <a href="basic-tablethddv.html">Thống Kê Hóa Đơn</a>
               </li>
               <li>
-                <a href="themify.html">Thống Kê Khách Hàng</a>
+                <a href="basic-tablephongdatra.html">Thống Kê Phòng Đã Trả</a>
               </li>
             </ul>
           </li>
@@ -314,14 +323,13 @@
                   <div class="form-wrap">
                     <form>
                       <div class="form-group">
-                        <label class="control-label mb-10 text-left">Mã khách hàng
-                          <span class="help"> KHMK123</span></label>
+                        <label class="control-label mb-10 text-left">Mã khách hàng</label>
                         <input id="makh" type="text" class="form-control" name="makh" />
                       </div>
                       <div class="form-group">
                         <label class="control-label mb-10 text-left">Họ và tên khác hàng
-                          <span class="help"> e.g. "john doe"</span></label>
-                        <input type="text" class="form-control" name="tenkh" value="john doe..." required />
+                          </label>
+                        <input type="text" class="form-control" name="tenkh"/>
                       </div>
                       <div class="form-group">
                         <label class="control-label mb-10 text-left">Địa chỉ</label>
@@ -429,8 +437,19 @@
         hochieu,
         gender: radio,
       };
-      createNewKH(dataPost).then(console.log);
+      createNewKH(dataPost).then((data) => {
+            console.log(data);
+            if (data.message) alert(data.message)
+            else {
+              window.location.href = "basic-tablekh.html";
+            }
+          });
     }
+
+    function logout(){
+        localStorage.removeItem("tokens");
+        window.location.href = "form-login.html";
+      }
   </script>
 </body>
 

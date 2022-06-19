@@ -23,11 +23,16 @@
 
   <link href="vendors/bower_components/jquery-toast-plugin/dist/jquery.toast.min.css" rel="stylesheet"
     type="text/css" />
-
   <!-- Custom CSS -->
   <link href="dist/css/style.css" rel="stylesheet" type="text/css" />
 
   <script src="authes/auth.js"></script>
+</head>
+
+<!-- Custom CSS -->
+<link href="dist/css/style.css" rel="stylesheet" type="text/css" />
+
+<script src="authes/auth.js"></script>
 </head>
 
 <body>
@@ -58,8 +63,6 @@
         <ul class="nav navbar-right top-nav pull-right">
           <li>
             <a id="open_right_sidebar" href="#"><i class="zmdi zmdi-settings top-nav-icon"></i></a>
-          </li>
-
           <li class="dropdown auth-drp">
             <a href="#" class="dropdown-toggle pr-0" data-toggle="dropdown">
               <img src="dist/img/user1.png" alt="user_auth" class="user-auth-img img-circle" />
@@ -94,13 +97,93 @@
                 </ul>
               </li>
               <li class="divider"></li>
-              <li>
+              <li id="logout" onclick="logout();">
                 <a href="#"><i class="zmdi zmdi-power"></i><span>Log Out</span></a>
               </li>
             </ul>
           </li>
         </ul>
       </div>
+    </nav>
+    <!-- /Top Menu Items -->
+
+    <!-- Left Sidebar Menu -->
+    <div class="fixed-sidebar-left">
+      <ul class="nav navbar-nav side-nav nicescroll-bar">
+        <li>
+          <a href="javascript:void(0);" data-toggle="collapse" data-target="#form_dr">
+            <div class="pull-left">
+              <i class="zmdi zmdi-edit mr-20"></i><span class="right-nav-text">Hệ thống</span>
+            </div>
+            <div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div>
+            <div class="clearfix"></div>
+          </a>
+          <ul id="form_dr" class="collapse collapse-level-1 two-col-list">
+            <li>
+              <a href="form-elementnewpass.html">Đổi mật khẩu</a>
+            </li>
+            <li>
+              <a href="basic-tabletk.html">Danh sách User</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="javascript:void(0);" data-toggle="collapse" data-target="#chart_dr">
+            <div class="pull-left">
+              <i class="zmdi zmdi-chart-donut mr-20"></i><span class="right-nav-text">Hóa Đơn </span>
+            </div>
+            <div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div>
+            <div class="clearfix"></div>
+          </a>
+          <ul id="chart_dr" class="collapse collapse-level-1 two-col-list">
+            <li>
+              <a href="form-elementhddv.html">Hóa Đơn Dịch Vụ</a>
+            </li>
+            <li>
+              <a href="basic-tablebill.html">Hóa Đơn Thanh Toán</a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="dropdown auth-drp">
+          <a href="#" class="dropdown-toggle pr-0" data-toggle="dropdown">
+            <img src="dist/img/user1.png" alt="user_auth" class="user-auth-img img-circle" />
+            <span class="user-online-status"></span></a>
+          <ul class="dropdown-menu user-auth-dropdown" data-dropdown-in="flipInX" data-dropdown-out="flipOutX">
+            <li>
+              <a href="profile.html"><i class="zmdi zmdi-account"></i><span>Profile</span></a>
+            </li>
+            <li>
+              <a href="#"><i class="zmdi zmdi-card"></i><span>my balance</span></a>
+            </li>
+            <li>
+              <a href="inbox.html"><i class="zmdi zmdi-email"></i><span>Inbox</span></a>
+            </li>
+            <li>
+              <a href="#"><i class="zmdi zmdi-settings"></i><span>Settings</span></a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="javascript:void(0);" data-toggle="collapse" data-target="#icon_dr">
+            <div class="pull-left">
+              <i class="zmdi zmdi-iridescent mr-20"></i><span class="right-nav-text">Thống kê</span>
+            </div>
+            <div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div>
+            <div class="clearfix"></div>
+          </a>
+          <ul id="icon_dr" class="collapse collapse-level-1">
+            <li>
+              <a href="basic-tablethddv.html">Thống Kê Hóa Đơn</a>
+            </li>
+            <li class="divider"></li>
+            <li>
+              <a href="#"><i class="zmdi zmdi-power"></i><span>Log Out</span></a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
     </nav>
     <!-- /Top Menu Items -->
     <!-- Left Sidebar Menu -->
@@ -183,79 +266,81 @@
             </li>
           </ul>
         </li>
-
-        <li>
-          <hr class="light-grey-hr mb-10" />
-        </li>
-      </ul>
+        <!-- /Left Sidebar Menu -->
     </div>
-    <!-- /Left Sidebar Menu -->
 
-    <!-- Main Content -->
-    <div class="page-wrapper">
-      <div class="container-fluid">
-        <!-- Title -->
-        <div class="row heading-bg"></div>
-        <!-- /Title -->
+    <li>
+      <hr class="light-grey-hr mb-10" />
+    </li>
+    </ul>
+  </div>
+  <!-- /Left Sidebar Menu -->
 
-        <div class="row">
-          <!-- Basic Table -->
-          <div class="col-sm-12">
-            <div class="panel panel-default card-view">
-              <div class="panel-heading">
-                <div class="pull-left">
-                  <h6 class="panel-title txt-dark">Danh sách phòng đang được thuê</h6>
-                </div>
-                <div class="clearfix"></div>
+  <!-- Main Content -->
+  <div class="page-wrapper">
+    <div class="container-fluid">
+      <!-- Title -->
+      <div class="row heading-bg"></div>
+      <!-- /Title -->
+
+      <div class="row">
+        <!-- Basic Table -->
+        <div class="col-sm-12">
+          <div class="panel panel-default card-view">
+            <div class="panel-heading">
+              <div class="pull-left">
+                <h6 class="panel-title txt-dark">Danh sách phòng đang được thuê</h6>
               </div>
-              <div class="panel-wrapper collapse in">
-                <div class="panel-body">
-                  <!-- <p class="text-muted">Add class <code>table</code> in table tag.</p> -->
-                  <div class="input-group" style="padding-bottom: 5px">
-                    <input type="text" name="search_dichVu" class="form-control" placeholder="Nhập mã khách hàng" />
-                    <span class="input-group-btn">
-                      <button type="button" class="btn btn-default" data-target="#search_form" data-toggle="collapse"
-                        aria-label="Close" aria-expanded="true" onclick="findDV();">
-                        <i class="zmdi zmdi-search"></i>
-                      </button>
-                    </span>
-                  </div>
-                  <div class="form-group mb-0">
-                    <button type="button" class="btn btn-success btn-anim" id="btnAdd">
-                      <i class="icon-rocket"></i><span class="btn-text">Đặt phòng</span>
+              <div class="clearfix"></div>
+            </div>
+            <div class="panel-wrapper collapse in">
+              <div class="panel-body">
+                <!-- <p class="text-muted">Add class <code>table</code> in table tag.</p> -->
+                <div class="input-group" style="padding-bottom: 5px">
+                  <input type="text" name="search_dichVu" class="form-control" placeholder="Nhập mã khách hàng" />
+                  <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" data-target="#search_form" data-toggle="collapse"
+                      aria-label="Close" aria-expanded="true" onclick="findDV();">
+                      <i class="zmdi zmdi-search"></i>
                     </button>
+                  </span>
+                </div>
+                <div class="form-group mb-0">
+                  <button type="button" class="btn btn-success btn-anim" id="btnAdd">
+                    <i class="icon-rocket"></i><span class="btn-text">Đặt phòng</span>
+                  </button>
 
-                    <button type="button" class="btn btn-success btn-anim" id="btnReceipt">
-                      <i class="icon-rocket"></i><span class="btn-text">Trả phòng</span>
-                    </button>
-                  </div>
-                  <div class="table-wrap mt-40">
-                    <div id="foods_table" class="table-responsive">
-                      <table class="table mb-0">
-                        <thead>
-                          <tr>
-                            <th scope="col">Chọn phiếu thuê</th>
-                            <th scope="col">Mã phiếu thuê</th>
-                            <th scope="col">Mã khách hàng</th>
-                            <th scope="col">Tên khách hàng</th>
-                            <th scope="col">Mã phòng</th>
-                            <th scope="col">Ngày đến</th>
-                            <th scope="col">Ngày đến hạn</th>
-                          </tr>
-                        </thead>
-                        <tbody></tbody>
-                      </table>
-                    </div>
+                  <button type="button" class="btn btn-success btn-anim" id="btnReceipt">
+                    <i class="icon-rocket"></i><span class="btn-text">Trả phòng</span>
+                  </button>
+                </div>
+                <div class="table-wrap mt-40">
+                  <div id="foods_table" class="table-responsive">
+                    <table class="table mb-0">
+                      <thead>
+                        <tr>
+                          <th scope="col">Chọn phiếu thuê</th>
+                          <th scope="col">Mã phiếu thuê</th>
+                          <th scope="col">Mã khách hàng</th>
+                          <th scope="col">Tên khách hàng</th>
+                          <th scope="col">Mã phòng</th>
+                          <th scope="col">Ngày đến</th>
+                          <th scope="col">Ngày đến hạn</th>
+                        </tr>
+                      </thead>
+                      <tbody></tbody>
+                    </table>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <!-- /Basic Table -->
         </div>
+        <!-- /Basic Table -->
       </div>
     </div>
-    <!-- /Main Content -->
+  </div>
+  <!-- /Main Content -->
   </div>
   <!-- /#wrapper -->
 

@@ -119,13 +119,13 @@ document.getElementById("mahddv").addEventListener("keyup", function () {
 
 document.getElementById("btnAdd").addEventListener("click", function () {
   const mahddv = document.querySelector("input[name=mahddv]").value;
-  const tendv = document.querySelector("input[name=tendv]").value;
+  const madv = document.querySelector("select[name=madv]").value;
   const luongsd = document.querySelector("input[name=luongsd]").value;
   const dongia = document.querySelector("input[name=dongia]").value;
 
   const dataPost = {
     mahddv,
-    tendv,
+    madv,
     luongsd,
     dongia,
   };

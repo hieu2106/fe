@@ -535,8 +535,43 @@ function createCheckIn(data) {
   }).then((res) => res.json());
 }
 
-function getPhongDangThue() {
-  const url = API_BASE_URL + "/phong/dangthue";
+function getPhongDangThue(keyword = "") {
+  const url = API_BASE_URL + "/phong/dangthue?makh=" + keyword;
+  return fetch(url, {
+    headers: {
+      "Content-type": "application/json",
+      authorization: tokens.accessToken,
+    },
+  }).then((res) => res.json());
+}
+
+function traPhong(phieuthueId, phongIds = []) {
+  const url = API_BASE_URL + "/phong/traphong";
+  return fetch(url, {
+    method: "POST",
+    body: JSON.stringify({
+      phieuthueId,
+      phongs: phongIds,
+    }),
+    headers: {
+      "Content-type": "application/json",
+      authorization: tokens.accessToken,
+    },
+  }).then((res) => res.json());
+}
+
+function getHoaDonById(id) {
+  const url = API_BASE_URL + "/hoadon/" + id;
+  return fetch(url, {
+    headers: {
+      "Content-type": "application/json",
+      authorization: tokens.accessToken,
+    },
+  }).then((res) => res.json());
+}
+
+function getAllPhongDatra() {
+  const url = API_BASE_URL + "/phong/phongdatra";
   return fetch(url, {
     headers: {
       "Content-type": "application/json",

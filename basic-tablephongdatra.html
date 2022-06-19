@@ -289,7 +289,7 @@
           <div class="panel panel-default card-view">
             <div class="panel-heading">
               <div class="pull-left">
-                <h6 class="panel-title txt-dark">Danh sách phòng đang được thuê</h6>
+                <h6 class="panel-title txt-dark">Danh sách phòng đã được trả</h6>
               </div>
               <div class="clearfix"></div>
             </div>
@@ -299,30 +299,24 @@
                 <div class="input-group" style="padding-bottom: 5px">
                   <input type="text" name="search_kh" class="form-control" placeholder="Nhập mã khách hàng..." />
                   <span class="input-group-btn">
-                    <button type="button" class="btn btn-default" id="search-tp" data-target="#search_form"
-                      data-toggle="collapse" aria-label="Close" aria-expanded="true">
+                    <button type="button" class="btn btn-default" data-target="#search_form" data-toggle="collapse"
+                      aria-label="Close" aria-expanded="true">
                       <i class="zmdi zmdi-search"></i>
                     </button>
                   </span>
-                </div>
-                <div class="form-group mb-0">
-                  <button type="button" class=" btn btn-success btn-anim mt-10" id="btnReceipt">
-                    <i class="icon-rocket"></i><span class="btn-text">Trả phòng</span>
-                  </button>
                 </div>
                 <div class="table-wrap mt-40">
                   <div id="foods_table" class="table-responsive">
                     <table class="table mb-0">
                       <thead>
                         <tr>
-                          <th scope="col">Chọn phòng trả</th>
-                          <th scope="col">Mã phiếu thuê</th>
+                          <th scope="col">Mã phiếu trả</th>
                           <th scope="col">Mã khách hàng</th>
                           <th scope="col">Tên khách hàng</th>
-                          <th scope="col">Mã phòng</th>
-                          <th scope="col">Giá thuê</th>
-                          <th scope="col">Ngày đến</th>
-                          <th scope="col">Ngày đến hạn</th>
+                          <th scope="col">Mã nhân viên</th>
+                          <th scope="col">Tên nhân viên</th>
+                          <th scope="col">Ngày trả</th>
+                          <th scope="col">Xem thông tin phiếu trả</th>
                         </tr>
                       </thead>
                       <tbody></tbody>
@@ -334,55 +328,6 @@
           </div>
         </div>
         <!-- /Basic Table -->
-        <div class="modal fade bs-example-modal-md in" id="traPhongModal" tabindex="-1" role="dialog"
-          aria-hidden="true">
-          <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h5 class="modal-title">Xác nhận trả phòng</h5>
-              </div>
-              <div class="modal-body">
-                <div class="customer-info mb-20">
-                  <p>
-                    <strong>Mã KH: </strong><span class="makh">1273921739</span>
-                  </p>
-                  <p>
-                    <strong>Tên KH: </strong><span class="tenkh">Đạt nè</span>
-                  </p>
-                  <p>
-                    <strong>Mã phiếu thuê: </strong><span class="maphieuthue">1273921739</span>
-                  </p>
-                  <p>
-                    <strong>Tiền cọc: </strong><span class="tiencoc">1273921739</span>
-                  </p>
-                </div>
-                <div class="table-wrap">
-                  <div id="table_traPhongDetails" class="table-responsive">
-                    <table class="table mb-0">
-                      <thead>
-                        <tr>
-                          <th scope="col">Mã phòng</th>
-                          <th scope="col">Giá thuê</th>
-                          <th scope="col">Ngày đến</th>
-                          <th scope="col">Ngày đến hạn</th>
-                        </tr>
-                      </thead>
-                      <tbody></tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-danger text-left" data-dismiss="modal">Hủy</button>
-                <button type="button" id="confirmTraPhong" class="btn btn-primary text-left" data-dismiss="modal">Trả
-                  phòng</button>
-              </div>
-            </div>
-            <!-- /.modal-content -->
-          </div>
-          <!-- /.modal-dialog -->
-        </div>
       </div>
     </div>
   </div>
@@ -419,7 +364,7 @@
 
   <script src="authes/handles.js"></script>
 
-  <script src="authes/traphong.js"></script>
+  <script src="authes/phongdatra.js"></script>
 </body>
 
 </html>

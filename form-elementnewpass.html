@@ -43,7 +43,8 @@
 
     <!-- Custom CSS -->
     <link href="dist/css/style.css" rel="stylesheet" type="text/css" />
-    <script src="./authes/auth.js"></script>
+
+    <script src="authes/auth.js"></script>
   </head>
 
   <body>
@@ -155,7 +156,7 @@
                   </ul>
                 </li>
                 <li class="divider"></li>
-                <li>
+                <li id="logout" onclick="logout();">
                   <a href="#"
                     ><i class="zmdi zmdi-power"></i><span>Log Out</span></a
                   >
@@ -166,6 +167,7 @@
         </div>
       </nav>
       <!-- /Top Menu Items -->
+
       <!-- Left Sidebar Menu -->
       <div class="fixed-sidebar-left">
         <ul class="nav navbar-nav side-nav nicescroll-bar">
@@ -184,10 +186,10 @@
             </a>
             <ul id="form_dr" class="collapse collapse-level-1 two-col-list">
               <li>
-                <a href="flot-chart.html">Đổi mật khẩu</a>
+                <a href="form-elementnewpass.html">Đổi mật khẩu</a>
               </li>
               <li>
-                <a href="morris-chart.html">Danh sách User</a>
+                <a href="basic-tabletk.html">Danh sách User</a>
               </li>
             </ul>
           </li>
@@ -206,10 +208,10 @@
             </a>
             <ul id="chart_dr" class="collapse collapse-level-1 two-col-list">
               <li>
-                <a href="fontawesome.html">Hóa Đơn Dịch Vụ</a>
+                <a href="form-elementhddv.html">Hóa Đơn Dịch Vụ</a>
               </li>
               <li>
-                <a href="themify.html">Hóa Đơn Thanh Toán</a>
+                <a href="basic-tablebill.html">Hóa Đơn Thanh Toán</a>
               </li>
             </ul>
           </li>
@@ -252,14 +254,14 @@
             >
               <div class="pull-left">
                 <i class="zmdi zmdi-iridescent mr-20"></i
-                ><span class="right-nav-text">Hóa Đơn</span>
+                ><span class="right-nav-text">Thống kê</span>
               </div>
               <div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div>
               <div class="clearfix"></div>
             </a>
             <ul id="icon_dr" class="collapse collapse-level-1">
               <li>
-                <a href="fontawesome.html">Thống Kê Doanh Thu</a>
+                <a href="basic-tablethddv.html">Thống Kê Hóa Đơn</a>
               </li>
               <li>
                 <a href="themify.html">Thống Kê Khách Hàng</a>
@@ -273,14 +275,14 @@
         </ul>
       </div>
       <!-- /Left Sidebar Menu -->
-
+    </div>
       <!-- Main Content -->
       <div class="page-wrapper">
         <div class="container-fluid">
           <!-- Title -->
           <div class="row heading-bg">
             <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-              <h5 class="txt-dark">Thêm USER</h5>
+              <h5 class="txt-dark">Đổi mật khẩu</h5>
             </div>
             <!-- Breadcrumb -->
             <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">

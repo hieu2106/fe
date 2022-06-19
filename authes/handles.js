@@ -534,3 +534,13 @@ function createCheckIn(data) {
     },
   }).then((res) => res.json());
 }
+
+function getPhongDangThue() {
+  const url = API_BASE_URL + "/phong/dangthue";
+  return fetch(url, {
+    headers: {
+      "Content-type": "application/json",
+      authorization: tokens.accessToken,
+    },
+  }).then((res) => res.json());
+}

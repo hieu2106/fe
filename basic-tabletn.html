@@ -404,7 +404,7 @@
       const keyword = document
         .querySelector("input[name=search_tn]")
         .value.trim();
-      searchTNById(keyword).then((data) => {
+        searchTNById(keyword).then((data) => {
         const foods_table = document.querySelector("#foods_table tbody");
         foods_table.replaceChildren();
         const rows = data.map((d) => {

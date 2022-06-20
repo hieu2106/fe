@@ -311,7 +311,7 @@
                     <div class="input-group" style="padding-bottom: 5px">
                       <input
                         type="text"
-                        name="search_tn"
+                        name="search_hddv"
                         class="form-control"
                         placeholder="Search"
                       />
@@ -419,7 +419,7 @@
       const keyword = document
         .querySelector("input[name=search_hddv]")
         .value.trim();
-      searchTNById(keyword).then((data) => {
+        searchHDDVByName(keyword).then((data) => {
         const foods_table = document.querySelector("#foods_table tbody");
         foods_table.replaceChildren();
         const rows = data.map((d) => {

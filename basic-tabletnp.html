@@ -393,7 +393,7 @@
       const keyword = document
         .querySelector("input[name=search_tnp]")
         .value.trim();
-      searchTNById(keyword).then((data) => {
+      searchTNPById(keyword).then((data) => {
         const foods_table = document.querySelector("#foods_table tbody");
         foods_table.replaceChildren();
         const rows = data.map((d) => {

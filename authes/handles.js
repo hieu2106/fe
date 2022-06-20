@@ -65,7 +65,8 @@ function deleteNV(id) {
 }
 
 function searchNVById(keyword) {
-  const url = API_BASE_URL + "/nhanvien/search?name=" + encodeURIComponent(keyword);
+  const url =
+    API_BASE_URL + "/nhanvien/search?name=" + encodeURIComponent(keyword);
   return fetch(url, {
     headers: {
       "Content-type": "application/json",
@@ -126,7 +127,8 @@ function getDVByID(id) {
 }
 
 function searchDVById(keyword) {
-  const url = API_BASE_URL + "/dichvu/search?tendv=" + encodeURIComponent(keyword);
+  const url =
+    API_BASE_URL + "/dichvu/search?tendv=" + encodeURIComponent(keyword);
   return fetch(url, {
     headers: {
       "Content-type": "application/json",
@@ -185,7 +187,8 @@ function deleteKH(id) {
 }
 
 function searchKHById(keyword) {
-  const url = API_BASE_URL + "/khachhang/search?tenkh=" + encodeURIComponent(keyword);
+  const url =
+    API_BASE_URL + "/khachhang/search?tenkh=" + encodeURIComponent(keyword);
   return fetch(url, {
     headers: {
       "Content-type": "application/json",
@@ -250,7 +253,8 @@ function deleteTN(id) {
 }
 
 function searchTNById(keyword) {
-  const url = API_BASE_URL + "/tiennghiphong/search?tentn=" + encodeURIComponent(keyword);
+  const url =
+    API_BASE_URL + "/tiennghi/search?tentn=" + encodeURIComponent(keyword);
   return fetch(url, {
     headers: {
       "Content-type": "application/json",
@@ -315,7 +319,8 @@ function deletePh(id) {
 }
 
 function searchPhById(keyword) {
-  const url = API_BASE_URL + "/phong/search?maphong=" + encodeURIComponent(keyword);
+  const url =
+    API_BASE_URL + "/phong/search?maphong=" + encodeURIComponent(keyword);
   return fetch(url, {
     headers: {
       "Content-type": "application/json",
@@ -397,10 +402,25 @@ function getAllHDDV() {
   }).then((res) => res.json());
 }
 
-function deletePT(id) {
+function searchHDDVByName(keyword) {
+  const url =
+    API_BASE_URL + "/hddichvu/search?mahddv=" + encodeURIComponent(keyword);
+  return fetch(url, {
+    headers: {
+      "Content-type": "application/json",
+      authorization: tokens.accessToken,
+    },
+  }).then((res) => res.json());
+}
+
+function deleteHDDV(id) {
   const url = API_BASE_URL + "/hddichvu/" + id;
   return fetch(url, {
     method: "DELETE",
+    headers: {
+      "Content-type": "application/json",
+      authorization: tokens.accessToken,
+    },
   }).then((res) => res.json());
 }
 
@@ -496,7 +516,8 @@ function deleteTNP(id) {
 }
 
 function searchTNPById(keyword) {
-  const url = API_BASE_URL + "/tiennghiphong/search?matn=" + encodeURIComponent(keyword);
+  const url =
+    API_BASE_URL + "/tiennghiphong/search?matn=" + encodeURIComponent(keyword);
   return fetch(url, {
     headers: {
       "Content-type": "application/json",
